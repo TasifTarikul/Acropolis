@@ -50,7 +50,7 @@ ul#menu-list li a{
     color: #fa6e4f !important;
 }
 ul#singup-list li {
-    float: left;
+    float: right;
     list-style: none;
     padding-left: 5px;
     padding-bottom: 20px;
@@ -90,6 +90,7 @@ i.fas.fa-user-alt{
     width: 50px;
     padding-right: 5px;
     margin-left: -8px;
+    border-radius: 50%;
 }
 .mobile-logout {
     padding-left: 49px;
@@ -101,6 +102,7 @@ i.fas.fa-user-alt{
     width: 35px;
     margin-top: -5px;
     margin-right: 5px;
+    border-radius: 50%;
 }
 .menu-profile-name {
     display: -webkit-inline-box;
@@ -272,7 +274,7 @@ ul#mobile-menu-list li:hover{
 .main-profile-edit {
     cursor: pointer;
     margin-right: 20px;
-    text-align: -webkit-right;
+    text-align: right;
     display: block;
     font-size: 16px;
     margin-bottom: -20px;
@@ -539,7 +541,12 @@ ul#mobile-menu-list li:hover{
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 1px;
 }
-
+.side-body-padding {
+    padding-left: 30px;
+}
+.main-body-padding{
+    padding-right: 30px;
+}
 
 
 
@@ -655,7 +662,18 @@ span#mobile-menu-logo {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+.side-body-padding {
+    padding-left: 15px;
+}
+.main-body-padding{
+    padding-right: 15px;
+}
+.body-profile-box {
+    margin-top: 20px;
+}
+.tab-nav-list-box {
+    margin-top: 2px;
+}
 
 
 }
