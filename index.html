@@ -12,8 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <style type="text/css">
-     </style>
+</head>
 <body> 
    
    	<section id="main-menu">
@@ -25,8 +24,6 @@
                <div class="col-sm-6">
                   <ul id="menu-list">
                       <li id="menu-list-name"><a class="active-page">Home</a></li>
-                      <li id="menu-list-name"><a>About</a></li>
-                      <li id="menu-list-name"><a>Course</a></li>
                   </ul>
                </div>
                <div class="col-sm-4 main-body-padding">
@@ -57,8 +54,6 @@
                 <span class="mobile-logout">Logout</span>
             </li>
             <a href="#"><li id="mobile-menu-list-name" class="active-page">Home</li></a>
-            <a href="#"><li id="mobile-menu-list-name">About</li></a>
-            <a href="#"><li id="mobile-menu-list-name">Course</li></a>
         </ul>
     </section><!--       Mobile Menu     -->
 
@@ -157,36 +152,282 @@
                                   <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body collapse-main-body">
                                         <form class="form-inline">
-                                         <div class="main-body-form-box">
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputName2" class="bmd-label-floating">First Name</label>
-                                              <input type="text" class="form-control main-body-form-input" id="exampleInputName2">
+                                        <div class="main-body-form-box"> 
+                                            <div class="form-title-box">
+                                              <p class="form-head-title">A.GENERAL</p>
+                                              <p class="form-head-subtitle">Please tick &#10003; category applied for</p>
                                             </div>
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputEmail2" class="bmd-label-floating">Last Name</label>
-                                              <input type="email" class="form-control main-body-form-input" id="exampleInputEmail2">
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-one"> 50 Years And Above
+                                                </label>
                                             </div>
-                                         </div>
-                                         <div class="main-body-form-box">
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputName2" class="bmd-label-floating">Email</label>
-                                              <input type="text" class="form-control main-body-form-input" id="exampleInputName2">
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-one"> Below 50 Years
+                                                </label>
                                             </div>
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputEmail2" class="bmd-label-floating">Mobile phone number</label>
-                                              <input type="email" class="form-control main-body-form-input" id="exampleInputEmail2">
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-one"> New application
+                                                </label>
                                             </div>
-                                         </div> 
-                                         <div class="main-body-form-box">
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputName2" class="bmd-label-floating">Country</label>
-                                              <input type="text" class="form-control main-body-form-input" id="exampleInputName2">
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-one"> Renewal/Extension
+                                                </label>
                                             </div>
-                                            <div class="form-group main-body-form-list">
-                                              <label for="exampleInputEmail2" class="bmd-label-floating">Company name</label>
-                                              <input type="email" class="form-control main-body-form-input" id="exampleInputEmail2">
+                                        </div><!-- form one-->
+                                        <div class="main-body-form-box"> 
+                                            <div class="form-title-box">
+                                              <p class="form-head-subtitle">Please tick &#10003; if applicant accompanied by</p>
                                             </div>
-                                         </div> 
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-two"> Spouse
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-two"> Children
+                                                </label>
+                                            </div>
+                                        </div><!-- form two -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-title-box section-b">
+                                              <p class="form-head-title">B. PARTICULAR OF APPLICANT</p>
+                                            </div>
+                                        </div>
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">1. Full Name</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input form-input-fullname" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form one --> 
+                                        <div class="main-body-form-box">
+                                            <div class="form-title-box">
+                                              <p class="form-head-subtitle">2. Gender (Please tick &#10003;)</p>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-three"> Male
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-three"> Female
+                                                </label>
+                                            </div>
+                                        </div><!-- form two -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-title-box">
+                                              <p class="form-head-subtitle">3. Marital Status (Please tick &#10003;)</p>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-four"> Single
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-four"> Married
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-four"> Divorced
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label>
+                                                  <input type="checkbox" class="checkbox-four"> Widow/widower
+                                                </label>
+                                            </div>
+                                            <div class="checkbox user-form-checkbox1">
+                                                <label class="marital-status-other-checkbox">
+                                                  <input type="checkbox" class="checkbox-four"> Other
+                                                </label>
+                                                <input type="" name="" class="marital-status-other-input">
+                                            </div>
+                                        </div><!-- form three --> 
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">4. Place of Birth(country)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input form-input-place" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form four -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">5. Date of Birth(dd/mm/yyyy)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form five -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">6. Nationality</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form six -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">7. Passport Number</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input form-input-passport" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form seven -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">8. Date of Expiry(dd/mm/yyyy)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form eight -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">9. Permanent Address</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form nine -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">10. Mailing Address</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form ten -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">11. Address in Malaysia(if any)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 11 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">12. Email Address (if any)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 12 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">13. Telephone Number</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 13 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">14. Current Employment</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 14 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">15. Income(per Annum)</label>
+                                              <input type="number" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 15 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">16. Current Employer/Organization</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 16 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">17. Employer Address</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 17 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">18. Last Employment(If Retired)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 18 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">19. Pension Received(Per annum;if any)</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 19 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">20. Last Employer/Organization</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 20 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-group main-body-form-list">
+                                              <label for="exampleInputName2" class="bmd-label-floating">21. Last Employer/Organization Address</label>
+                                              <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                            </div>
+                                        </div><!-- form 21 -->
+                                        <div class="main-body-form-box">
+                                            <div class="working-experience-box">
+                                                <p>22. Working Experience</p>
+                                            </div>
+                                            <div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Position</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Organization</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Year</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                            </div><!-- working experience 1 -->
+                                            <div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Position</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Organization</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Year</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                            </div><!-- working experience 2 -->
+                                            <div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Position</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Organization</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                                <div class="form-group main-body-form-list11">
+                                                    <label for="exampleInputName2" class="bmd-label-floating">Year</label>
+                                                    <input type="text" class="form-control main-body-form-input full-name-input" id="exampleInputName2">
+                                                </div>
+                                            </div><!-- working experience 3 -->
+                                        </div><!-- form 22 -->
+                                        <div class="main-body-form-box">
+                                            <div class="form-title-box section-b">
+                                              <p class="form-head-title">C. DECLARATION BY APPLICANT</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-agree-box">
+                                            <span class="agree-body-text">I</span><input type="" name="" class="agree-input-box form-input-fullname-value">
+                                            <span class="agree-body-text">, Passport No.</span>
+                                            <input type="" name="" class="agree-input-box form-input-passport-value">
+                                            <span class="agree-body-text">, issued by Goverment of</span>
+                                            <input type="" name="" class="agree-input-box form-input-place-value">
+                                            <span class="agree-body-text">agree that:</span>
+                                        </div>
+                                        <div class="form-agree-title-box">
+                                            <p class="form-agree-paper">a) All information given in the application form and the attached supporting documents are genuinely correct and true</p>
+                                            <p class="form-agree-paper">b) I authorize Ministry of Tourism Sarawak to verify my financial record with financial institution as listed on items (9) and (10) in Appendix A.</p>
+                                            <p class="form-agree-paper">c) Any false information given by applicant will have their Social Visit Pass issued under this porgramme cancelled without further notice.</p>
+                                        </div> 
+                                         <div class="checkbox user-form-checkbox">
+                                            <label>
+                                              <input type="checkbox"> I agree with all terms and conditions
+                                            </label>
+                                          </div>
                                          <div class="main-body-form-button">
                                               <p>Save</p>
                                          </div>
@@ -234,7 +475,12 @@
                                               <label for="exampleInputEmail2" class="bmd-label-floating">Company name</label>
                                               <input type="email" class="form-control main-body-form-input" id="exampleInputEmail2">
                                             </div>
-                                         </div> 
+                                         </div>
+                                         <div class="checkbox user-form-checkbox">
+                                            <label>
+                                              <input type="checkbox"> Check me out
+                                            </label>
+                                          </div> 
                                          <div class="main-body-form-button">
                                               <p>Save</p>
                                          </div>
@@ -283,6 +529,11 @@
                                               <input type="email" class="form-control main-body-form-input" id="exampleInputEmail2">
                                             </div>
                                          </div> 
+                                         <div class="checkbox user-form-checkbox">
+                                            <label>
+                                              <input type="checkbox"> Check me out
+                                            </label>
+                                          </div>
                                          <div class="main-body-form-button">
                                               <p>Save</p>
                                          </div>

@@ -44,10 +44,24 @@ $(document).ready(function(){
     $(".single-group-box").hover(
        function() {
           $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
           $(".input-icon-class", this).addClass("input-icon-hover")
         }, function() {
           $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
           $(".input-icon-class", this).removeClass("input-icon-hover")
+        }
+    )
+
+    $(".single-group-box").hover(
+       function() {
+          $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
+          $(".input-icon-class1", this).addClass("input-icon-hover1")
+        }, function() {
+          $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
+          $(".input-icon-class1", this).removeClass("input-icon-hover1")
         }
     )
 
@@ -56,8 +70,20 @@ $(document).ready(function(){
     $(".main-body-form-list").hover(
        function() {
           $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
         }, function() {
           $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
+        }
+    )
+
+    $(".main-body-form-list11").hover(
+       function() {
+          $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
+        }, function() {
+          $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
         }
     )
     
@@ -91,7 +117,97 @@ $(document).ready(function(){
         $(this).addClass('main-body-menu-active');
     });
 
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip(); 
+
+    $('.admin-page-menu-listname').click(function() {
+        $('.admin-page-menu-listname').removeClass('activeadmin');
+        $(this).addClass('activeadmin');
+    }); 
+
+
+    //tabel icons
+     $(".admin-page-table-icon").click(function(){
+        $(this).toggleClass("fa-chevron-circle-down fa-chevron-circle-up");
+     }) 
+
+
+
+     // login form input hover
+    $(".single-group-box1").hover(
+       function() {
+          $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
+          $(".input-icon-class", this).addClass("input-icon-hover")
+        }, function() {
+          $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
+          $(".input-icon-class", this).removeClass("input-icon-hover")
+        }
+    )
+
+    $(".single-group-box1").hover(
+       function() {
+          $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
+          $(".input-icon-class1", this).addClass("input-icon-hover1")
+        }, function() {
+          $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
+          $(".input-icon-class1", this).removeClass("input-icon-hover1")
+        }
+    )
+
+
+    // login form input hover
+
+    $(".main-body-form-list1").hover(
+       function() {
+          $( this ).addClass( "is-focused" );
+          $( this ).addClass( "input-border-bottom" );
+          $( "label",this ).addClass( "myfromsize" );
+        }, function() {
+          $( this ).removeClass( "is-focused" );
+          $( this ).removeClass( "input-border-bottom" );
+          $( "label",this ).addClass( "myfromsize" );
+        }
+    )
+
+    //checkbox click
+
+    $('.checkbox-one').on('click', function() {
+        $('.checkbox-one').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-two').on('click', function() {
+        $('.checkbox-two').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-three').on('click', function() {
+        $('.checkbox-three').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-four').on('click', function() {
+        $('.checkbox-four').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+
+    // real time show input value
+    $('.form-input-fullname').keyup(function () {
+        $('.form-input-fullname-value').val($(this).val());
+    });
+
+    $('.form-input-passport').keyup(function () {
+        $('.form-input-passport-value').val($(this).val());
+    });
+
+    $('.form-input-place').keyup(function () {
+        $('.form-input-place-value').val($(this).val());
+    });
+
     
     /*
     $(".input-box-class").keyup(function(){

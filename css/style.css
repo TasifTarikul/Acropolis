@@ -354,11 +354,27 @@ ul#mobile-menu-list li:hover{
     width: 90%;
     margin-top: -2px;
 }
+.single-group-box1 {
+    margin-bottom: 0px;
+    width: 100%;
+    margin-top: -2px;
+}
+.single-group-box2 {
+    margin-bottom: 0px;
+    width: 50%;
+    margin-top: -2px;
+}
 .input-name-class {
     font-size: 14px !important;
     letter-spacing: 1px;
 }
 .single-group-box.Persona-box {
+    margin-top: 30px;
+}
+.single-group-box1.Persona-box {
+    margin-top: 30px;
+}
+.single-group-box2.Persona-box {
     margin-top: 30px;
 }
 .Persona-box {
@@ -417,7 +433,7 @@ ul#mobile-menu-list li:hover{
     outline: none !important;
     border-bottom: 1px solid #bebebe;
 }
-.is-focused{
+.input-border-bottom{
     background-image: linear-gradient(0deg,#3f51b5 1px,rgba(0,150,136,0) 0),linear-gradient(0deg,rgba(0,0,0,.26) 1px,transparent 0);
 }
 .is-focused label{
@@ -433,9 +449,25 @@ ul#mobile-menu-list li:hover{
     transition: margin-top .6s;
     cursor: pointer;
 }
+.input-icon-class1 {
+    margin-right: 10px;
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+    color: #bebebe;
+    font-size: 12px;
+    -webkit-transition: margin-top .6s; /* For Safari 3.1 to 6.0 */
+    transition: margin-top .6s;
+    cursor: pointer;
+}
+
 .input-icon-hover {
     color: #3f51b5;
     margin-top: -45px;
+}
+.input-icon-hover1 {
+    color: #3f51b5;
+    margin-top: -10px;
 }
 .tab-nav-list-box {
     background-color: white;
@@ -456,10 +488,23 @@ ul#mobile-menu-list li:hover{
     width: 100%;
 }
 .main-body-form-list.bmd-form-group {
-    display: -webkit-inline-box;
-    width: 47%;
+    width: 95%;
     margin-right: 0%;
     margin-left: 2%;
+}
+.main-body-form-list11.bmd-form-group {
+    width: 30%;
+    margin-right: 0%;
+    margin-left: 2%;
+    display: inline-block;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+.main-body-form-list1.bmd-form-group {
+    display: -webkit-inline-box;
+    width: 49%;
+    margin-right: 0%;
+    margin-left: 0%;
 }
 .main-body-form-input {
     width: 100% !important;
@@ -550,6 +595,351 @@ ul#mobile-menu-list li:hover{
 
 
 
+/*****************************************************************************
+                admin body
+******************************************************************************/
+.admin-main-body {
+    padding-top: 60px;
+}
+.admin-page-container{
+    width: 100%;
+}                
+.admin-page-left-menubox {
+    min-height: 100%;
+    background-color: #052738;
+}
+.admin-page-menu-list {
+    display: block !important;
+    padding-top: 20px;
+}
+.admin-page-menu-list li {
+    padding-bottom: 15px;
+}
+.admin-page-menu-list li a{
+    color: white;
+    letter-spacing: 1px;
+}
+.activeadmin a {
+    color: #fa6e4f !important;
+}
+.admin-page-main-part{
+    margin-top: 20px;
+}
+
+/****************************************************************
+                    Tabel box
+*****************************************************************/
+.admin-page-main-table , th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+.admin-page-table-icon {
+    float: right;
+    margin-right: 10px;
+    font-size: 15px;
+    display: block;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.main-body-input-row {
+    background-color: #052738;
+    height: 50px;
+}
+.main-table-searchbox {
+    margin-left: 3.5%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.main-table-searchbox:focus { 
+    border: 1px solid white !important;
+    outline: none !important;
+    background-image: none !important;
+}
+.main-body-input-row .is-focused{
+    background-image: none !important;
+}
+.main-table-searchbox {
+    width: 98%;
+    height: 30px;
+    margin-left: 1%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid white;
+    padding-left: 10px;
+    color: white;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.main-body-name-row {
+    color: white;
+    height: 40px;
+    background-color: #082e42;
+}
+.main-body-name-row span{
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+.main-body-action-button {
+    background-color: #082e41;
+    color: white;
+    padding: 4px 20px;
+    margin-bottom: 1px;
+    cursor: pointer;
+}
+.main-body-number-row {
+    width: 6%;
+}
+.main-body-table-value span {
+    color: #3c4b82;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+input::placeholder {
+    font-size: 12px !important; 
+}
+
+
+/************************************************
+                page number list
+**************************************************/
+.main-body-pagination-box {
+    text-align: center;
+}
+.main-body-pagination-list {
+    margin-top: 40px;
+    display: inline-block;
+}
+.main-body-pagination-list li {
+    float: left;
+    list-style: none;
+    padding-right: 10px;
+}
+.main-body-pagination-list li {
+    border: 1px solid #385091;
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+.main-body-pagination-list li:hover{
+    background-color: steelblue;
+    color: white;
+    border: 1px solid steelblue;
+}
+.main-body-pagination-list li span{
+    font-family: 'Poppins', sans-serif;    
+}
+
+
+
+
+/************************************************
+                login body
+**************************************************/
+#login-main-body {
+    min-height: 100vh;
+    background-color: #f5f8fa;
+}
+.login-section {
+    padding-left: 2%;
+    padding-right: 2%;
+    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-top: 15%;
+}
+.login-logo-text {
+    text-align: center;
+    padding-top: 18px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif;
+}
+.login-form {
+    margin-bottom: 30px;
+}
+
+
+
+
+/************************************************
+                sinup body
+**************************************************/
+.myfromsize{
+    font-size: 14px !important;
+}
+.singup-section {
+    padding-left: 2%;
+    padding-right: 2%;
+    box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-top: 9%;
+    margin-bottom: 5%;
+    padding-top: 0%;
+    padding-bottom: 1%;
+}
+.singup-row-box {
+    margin-bottom: -20px;
+}
+label.bmd-label-floating.singup-section-option {
+    font-size: 14px !important;
+    letter-spacing: 1px;
+}
+.singup-submit-box {
+    margin-top: 50px !IMPORTANT;
+}
+.singup-title-top{
+    text-align: center;
+}
+.singup-title-top {
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+    color: #212529;
+    margin-bottom: 0px;
+}
+.singup-submit-box span{
+    letter-spacing: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    padding-top: 6px;
+    display: block;
+}
+.login-submit-box {
+    margin-top: 20px !IMPORTANT;
+}
+.login-submit-box span{
+    letter-spacing: 2px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    padding-top: 6px;
+    display: block;
+}
+.checkbox.user-form-checkbox {
+    margin-left: 8%;
+    width: 100%;
+    cursor: pointer;
+}
+.checkbox.user-form-checkbox label {
+    color: #5e5c60;
+}
+.checkbox.user-form-checkbox label {
+    display: block;
+    cursor: pointer;
+}
+.checkbox label input[type=checkbox]:checked+.checkbox-decorator .check, label.checkbox-inline input[type=checkbox]:checked+.checkbox-decorator .check {
+    color: #3b78f9 !important;
+    border-color: #3b78f9 !important;
+}
+.checkbox label input[type=checkbox]:checked+.checkbox-decorator .check:before, label.checkbox-inline input[type=checkbox]:checked+.checkbox-decorator .check:before{
+    color: #3b78f9 !important;
+}
+.checkbox.user-form-checkbox1 {
+    margin-left: 2%;
+    width: 47%;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 1%;
+}
+.checkbox.user-form-checkbox1 label {
+    display: block;
+    cursor: pointer;
+}
+.form-title-box {
+    margin-left: 2%;
+}
+.form-head-title {
+    margin-bottom: 0px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #052738;
+    font-weight: 800;
+}
+.form-head-subtitle {
+    letter-spacing: 1px;
+    color: #5e5b5b;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+.section-b {
+    margin-top: 5%;
+}
+.full-name-input{
+    text-transform: uppercase;
+}
+.marital-status-other-input {
+    color: #495056;
+    display: inline-block;
+    border: 0px;
+    border-bottom: 1px solid gray;
+    width: 60%;
+    outline: none;
+}
+.checkbox.user-form-checkbox1 label {
+    display: inline-block;
+    cursor: pointer;
+    color:  #5e5b5b;
+}
+.bmd-label-floating {
+    color: #5f5c5c;
+}
+.working-experience-box {
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.form-agree-box {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.agree-input-box {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    margin-left: 10px;
+}
+.agree-body-text {
+    color: #5e5c60;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.form-agree-title-box {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.form-agree-paper{
+    color: #5e5c60;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+.working-experience-box p {
+    color: #5e5c60;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+.form-input-fullname-value{
+    text-transform: uppercase;
+}
+.form-input-passport-value{
+    text-transform: uppercase;
+}
+.form-input-place-value{
+     text-transform: uppercase;
+}
+
+
 
 
 
@@ -618,10 +1008,7 @@ p#top-textbox-button {
 div#bottom-textbox {
     margin-top: 155px;
   }
-}
-
-@media screen and (max-width: 400px)
-{
+  
 section#top-section {
     height: 610px;
 }	
@@ -674,6 +1061,44 @@ span#mobile-menu-logo {
 .tab-nav-list-box {
     margin-top: 2px;
 }
+.admin-page-left-menubox {
+    height: 26vh;
+}
+.admin-page-container {
+    width: 200%;
+}
+.main-body-name-row span {
+    font-size: 10px;
+}
+.main-body-table-value span {
+    font-size: 10px;
+}
+.main-body-action-button {
+    font-size: 10px;
+}
+input::placeholder {
+    font-size: 10px !important; 
+}
+.admin-page-table-icon {
+    font-size: 12px;
+}
+.admin-page-left-menubox {
+    height: 15vh;
+}
+.main-body-pagination-list li {
+    padding: 0px 5px;
+}
+.main-body-pagination-list li span {
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
 
 
 }
