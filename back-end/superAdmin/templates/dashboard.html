@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <ul>
+    {% if all_clients %}
+        {% for client in all_clients %}
+            <li><a href="{% url 'superAdmin:client' client.id %}" >{{ client.first_name}} + {{client.last_name }}</a></li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+    <a href="{% url 'superAdminlogout' %}"><button> Logout</button></a>
+</body>
+</html>

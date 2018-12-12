@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type = "text/css" href = "{% static 'userProfileApp/css/userProfilePage.css' %}">
+
+</head>
+<body>
+    <form action="{% url 'userProfileApp:usrProfile' %}" method="post"> <!------->
+
+        <h1>Acropolis Form</h1>                                         <!------->
+        <form action="{% url 'userProfileApp:usrProfile' %}" method="post">
+            {% csrf_token %}
+            {{ acropolis_form.as_p }}
+            <input type="submit" value="AcropolisForm">
+        </form>
+
+        <h1>Sarawak Form</h1>                                           <!--- ---->
+        <form action="{% url 'userProfileApp:usrProfile' %}" method="post">
+            {% csrf_token %}
+            {{ sarawak_form.as_p }}
+            <input type="submit" value="SarawakForm">
+        </form>
+
+        <h1>Visa Form</h1>                                           <!---Sarawak form wrapper---->
+        <form action="{% url 'userProfileApp:usrProfile' %}" method="post">
+            {% csrf_token %}
+            {{ visa_form.as_p }}
+            <input type="submit" value="VisaForm" >
+        </form>
+        <input type="submit" value="AllForm">
+
+    </form>                                                             <!--- ---->
+
+    <a href="{% url 'userProfilelogout' %}"><button> Logout</button></a>
+</body>
+</html>
