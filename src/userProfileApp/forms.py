@@ -8,27 +8,27 @@ from django import forms
 
 
 class AcropolisForm(ModelForm):
-    first_name = forms.CharField(widget=forms.TextInput(), max_length=100, null=True, blank=True)
-    last_name = forms.CharField(widget=forms.TextInput(), max_length=100, null=True, blank=True)
+    first_name = forms.CharField(widget=forms.TextInput(), max_length=100, required=False)
+    last_name = forms.CharField(widget=forms.TextInput(), max_length=100, required=False)
 
     class Meta:
         model = AcropolisModel
         fields = '__all__'
-        exclude = ['user_profile', ]
+        # exclude = ['user_profile', ]
 
     def __init__(self, *args, **kwargs):
 
         super(AcropolisForm, self).__init__(*args, **kwargs)
-
-        self.fields['first_name'].initial = kwargs['instance'].user_profile.first_name
-        self.fields['last_name'].initial = kwargs['instance'].user_profile.last_name
+        self.instance = kwargs['instance']
+        self.fields['first_name'].initial = self.instance.user_profile.first_name
+        self.fields['last_name'].initial = self.instance.user_profile.last_name
 
     def save(self, commit=True):
         super(AcropolisForm, self).save()
-
-        self.user_profile.first_name = self.cleaned_data.get('first_name')
-        self.user_profile.last_name = self.cleaned_data.get('last_name')
-        self.save()
+        
+        self.instance.user_profile.first_name = self.cleaned_data.get('first_name')
+        self.instance.user_profile.last_name = self.cleaned_data.get('last_name')
+        self.instance.user_profile.save()
 
 
 class SarawakForm(ModelForm):

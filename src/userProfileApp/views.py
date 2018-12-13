@@ -14,77 +14,49 @@ def usr_profile(request):
     if request.user.is_superuser:  # checks wether the user is a superuser.
         return HttpResponseRedirect(reverse('superAdmin:dashboard'))
 
+    acropolis_form = AcropolisForm(instance=request.user.acropolismodel)
+    sarawak_form = SarawakForm(instance=request.user.sarawakmodel)
+    visa_form = VisaForm(instance=request.user.visamodel)
+
+    # print(request.user.acropolismodel.user_profile.first_name)
     if request.method == 'POST':
         if request.POST['submit'] == 'AcropolisForm':                               # if acropolis form is submitted
-            user = request.user
-            acropolis_form = AcropolisForm(request.POST)
+            user = request.user  # get current user
+            acropolis_form = AcropolisForm(request.POST,instance=user.acropolismodel )
             if acropolis_form.is_valid():
                 acropolis_form.save(commit=True)
-                acropolis_form = AcropolisForm(instance=user.acropolismodel)
-                sarawak_form = SarawakForm(instance=user.sarawakmodel)
-                visa_form = VisaForm(instance=user.visamodel)
-                context = {
-                    'user': user,
-                    'acropolis_form': acropolis_form,
-                    'sarawak_form': sarawak_form,
-                    'visa_form': visa_form
-                }
-                return render(request, 'userProfileApp/userProfilePage.html', context)
 
         elif request.POST['submit'] == 'SarawakForm':                               # if sarawak form is submitted
             user = request.user
-            acropolis_form = AcropolisForm(request.POST)
-            if acropolis_form.is_valid():
-                acropolis_form.save(commit=True)
-                acropolis_form = SarawakForm(instance=user.acropolismodel)
-                sarawak_form = SarawakForm(instance=user.sarawakmodel)
-                visa_form = VisaForm(instance=user.visamodel)
-                context = {
-                    'user': user,
-                    'acropolis_form': acropolis_form,
-                    'sarawak_form': sarawak_form,
-                    'visa_form': visa_form
-                }
-                return render(request, 'userProfileApp/userProfilePage.html', context)
+            sarawak_form = SarawakForm(request.POST, instance=user.sarawakmodel)
+            if sarawak_form.is_valid():
+                sarawak_form.save(commit=True)
 
         elif request.POST['submit'] == 'VisaForm':                               # if Visa form is submitted
             user = request.user
-            acropolis_form = VisaForm(request.POST)
-            if acropolis_form.is_valid():
-                acropolis_form.save(commit=True)
-                acropolis_form = AcropolisForm(instance=user.acropolismodel)
-                sarawak_form = SarawakForm(instance=user.sarawakmodel)
-                visa_form = VisaForm(instance=user.visamodel)
-                context = {
-                    'user': user,
-                    'acropolis_form': acropolis_form,
-                    'sarawak_form': sarawak_form,
-                    'visa_form': visa_form
-                }
-                return render(request, 'userProfileApp/userProfilePage.html', context)
+            visa_form = VisaForm(request.POST, instance=user.visamodel)
+            if visa_form.is_valid():
+                visa_form.save(commit=True)
+                visa_form = VisaForm()
+            
+
         elif request.POST['submit'] == 'AllForm':
             user = request.user
-            acropolis_form = AcropolisForm(instance=user.acropolismodel)
-            sarawak_form = SarawakForm(instance=user.sarawakmodel)
-            visa_form = VisaForm(instance=user.visamodel)
-            context = {
-                'user': user,
-                'acropolis_form': acropolis_form,
-                'sarawak_form': sarawak_form,
-                'visa_form': visa_form
-            }
-            return render(request, 'userProfileApp/userProfilePage.html', context)
-    else:
-        acropolis_form = AcropolisForm(instance=request.user.acropolismodel)
-        sarawak_form = SarawakForm(instance=request.user.sarawakmodel)
-        visa_form = VisaForm(instance=request.user.visamodel)
-        context = {
-            'user': request.user,
-            'acropolis_form': acropolis_form,
-            'sarawak_form': sarawak_form,
-            'visa_form' : visa_form
-        }
-        return render(request, 'userProfileApp/userProfilePage.html', context)
+            acropolis_form = AcropolisForm(request.POST, instance=user.acropolismodel)
+            sarawak_form = SarawakForm(request.POST, instance=user.sarawakmodel)
+            visa_form = VisaForm(request.POST, instance=user.visamodel)
+            if acropolis_form.is_valid() and sarawak_form.is_valid() and visa_form.is_valid():
+                acropolis_form.save()
+                sarawak_form.save()
+                visa_form.save()
+
+    context = {
+        'user': request.user,
+        'acropolis_form': acropolis_form,
+        'sarawak_form': sarawak_form,
+        'visa_form' : visa_form
+    }
+    return render(request, 'userProfileApp/userProfilePage.html', context)
 
 
 def sign_up(request):

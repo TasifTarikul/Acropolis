@@ -19,6 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth import logout
 
 urlpatterns = [
+    path('', include('coreApp.urls')),
     path('userProfileApp/', include('userProfileApp.urls')),
     path('superAdmin/', include('superAdmin.urls')),
     path('admin/', admin.site.urls),
