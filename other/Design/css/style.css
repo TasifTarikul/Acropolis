@@ -1029,8 +1029,31 @@ label.bmd-label-floating.singup-section-option {
     margin-top: -20px;
     color: #3f51b5;
 }
-
-
+.button-login-singup-group {
+    text-align: center;
+    margin-top: 15px;
+}
+.forgot-login-text a {
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    color: #212529 !IMPORTANT;
+    padding-right: 8px;
+}
+.forgot-login-text a:hover{
+    text-decoration: underline !important;
+}
+.forgot-singup-text a {
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    color: #212529 !IMPORTANT;
+}
+.forgot-singup-text a:hover{
+    text-decoration: underline !important;
+}
 
 
 
@@ -1200,7 +1223,12 @@ input::placeholder {
 .main-body-pagination-list li span {
     font-size: 12px;
 }
-
+.forgot-login-text a {
+    font-size: 13px;
+}
+.forgot-singup-text a {
+    font-size: 13px;
+}
 
 
 
