@@ -45,11 +45,13 @@ $(document).ready(function(){
        function() {
           $( this ).addClass( "is-focused" );
           $( this ).addClass( "input-border-bottom" );
-          $(".input-icon-class", this).addClass("input-icon-hover")
+          $(".input-icon-class", this).addClass("input-icon-hover");
+          $(".input-icon-class1", this).addClass("input-icon-hover");
         }, function() {
           $( this ).removeClass( "is-focused" );
           $( this ).removeClass( "input-border-bottom" );
-          $(".input-icon-class", this).removeClass("input-icon-hover")
+          $(".input-icon-class", this).removeClass("input-icon-hover");
+          $(".input-icon-class1", this).addClass("input-icon-hover");
         }
     )
 
@@ -137,11 +139,13 @@ $(document).ready(function(){
        function() {
           $( this ).addClass( "is-focused" );
           $( this ).addClass( "input-border-bottom" );
-          $(".input-icon-class", this).addClass("input-icon-hover")
+          $(".input-icon-class", this).addClass("input-icon-hover");
+          $(".input-icon-class1", this).addClass("input-icon-hover");
         }, function() {
           $( this ).removeClass( "is-focused" );
           $( this ).removeClass( "input-border-bottom" );
-          $(".input-icon-class", this).removeClass("input-icon-hover")
+          $(".input-icon-class", this).removeClass("input-icon-hover");
+          $(".input-icon-class1", this).removeClass("input-icon-hover");
         }
     )
 
@@ -168,7 +172,7 @@ $(document).ready(function(){
         }, function() {
           $( this ).removeClass( "is-focused" );
           $( this ).removeClass( "input-border-bottom" );
-          $( "label",this ).addClass( "myfromsize" );
+          $( "label",this ).removeClass( "myfromsize" );
         }
     )
 
@@ -194,6 +198,43 @@ $(document).ready(function(){
         $(this).prop('checked', true);
     });
 
+    $('.checkbox-five').on('click', function() {
+        $('.checkbox-five').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-six').on('click', function() {
+        $('.checkbox-six').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-seven').on('click', function() {
+        $('.checkbox-seven').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-eight').on('click', function() {
+        $('.checkbox-eight').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+
+    $('.checkbox-nine').on('click', function() {
+        $('.checkbox-nine').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-ten').on('click', function() {
+        $('.checkbox-ten').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+    $('.checkbox-eleven').on('click', function() {
+        $('.checkbox-eleven').prop('checked', false);  
+        $(this).prop('checked', true);
+    });
+
+
 
     // real time show input value
     $('.form-input-fullname').keyup(function () {
@@ -205,8 +246,48 @@ $(document).ready(function(){
     });
 
     $('.form-input-place').keyup(function () {
-        $('.form-input-place-value').val($(this).val());
+        
     });
+
+    $(".first-form-country").click(function(){
+       var conceptName = $('#exampleSelect1').find(":selected").text();
+       $('.form-input-place-value').val(conceptName);
+    })
+
+
+
+
+
+    // country dropdown list
+    $(".first-form-country").hover(
+       function() {
+          $(".input-icon-class1").addClass("country-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5")
+        }, function() {
+          $(".input-icon-class1").removeClass("country-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5 !important")
+        }
+    )
+
+    $(".first-form-nationality").hover(
+       function() {
+          $(".input-icon-class-nationality").addClass("nationality-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5")
+        }, function() {
+          $(".input-icon-class-nationality").removeClass("nationality-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5 !important")
+        }
+    )
+
+    $(".first-form-country-issue").hover(
+       function() {
+          $(".input-icon-class-issue").addClass("issue-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5")
+        }, function() {
+          $(".input-icon-class-issue").removeClass("issue-icon-hover");
+          $(this).css("border-bottom","1px solid #3f51b5 !important")
+        }
+    )
 
     
     /*

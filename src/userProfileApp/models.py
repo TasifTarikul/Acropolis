@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+import datetime
 from coreApp.models import User
 from coreApp.commonData import all_countries
 
@@ -9,9 +10,24 @@ from coreApp.commonData import all_countries
 
 class AcropolisModel(models.Model):
 
-    _application_type_list = (('mm2h_peninsular', 'MM2 Peninsular'), ('mm2h_sarawak', 'MM2H Sarawak'))
+    _application_type_list = (
+            ('mm2h_peninsular', 'MM2 Peninsular'),
+            ('mm2h_sarawak', 'MM2H Sarawak'),
+            )
     _application_status_list = (('single application', 'Single Application'),
                                 ('family application', 'Family Application'))
+
+    _client_status_list = (
+            ('subscriber', 'Subscriber'),
+            ('qualified', 'Qualified'),
+            ('qual-lead', 'Qual-Lead'),
+            ('lead', 'Lead'),
+            ('applied', 'Applied'),
+            ('approved', 'Approved'),
+            ('rejected', 'Rejected'),
+            ('drop_out', 'Drop Out'),
+            ('un_subscribed', 'Un-subscribed')
+        )
 
     user_profile = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     referenceID = models.CharField(max_length=50, null=True, blank=True)
@@ -26,10 +42,19 @@ class AcropolisModel(models.Model):
     current_add = models.TextField(max_length=1000, null=True, blank=True)
     permanent_add = models.TextField(max_length=1000, null=True,blank=True)
     email_add = models.EmailField(null=True, blank=True)
+    is_business_set_up = models.BooleanField(default=False, null=True,blank=True)
+    client_status = models.CharField(max_length=50, null=True, blank=True, choices=_client_status_list)
     phone_no = models.CharField(max_length=50, null=True,blank=True)
     application_type = models.CharField(max_length=50, null=True, blank=True, choices=_application_type_list)
     application_status = models.CharField(max_length=50, null=True, blank=True, choices=_application_status_list)
 
+
+    @property
+    def his_age(self):
+        if self.date_of_birth:
+            return datetime.datetime.now().year - self.date_of_birth.year
+        else:
+            return None
 
 # ------------------fileds taken from Sarawak Aaplication form----------------
 

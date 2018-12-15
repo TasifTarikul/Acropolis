@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-	  <meta charset="UTF-8" />
+      <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <title>Acropolis | Migrate To Malaysia</title>
-    <link rel="icon" href="img/logo-small.png" />
-	  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'common_static/img/logo-small.png' %}" />
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'common_static/css/style.css' %}" />
 </head>
 <body> 
    
-   	<section id="main-menu">
+    <section id="main-menu">
       <div class="container">
            <div class="row">
                <div class="col-sm-2 side-body-padding">
@@ -33,7 +33,7 @@
                       <span class="menu-profile-name"><a>Tasif Tarikul</span></a>
                     </li>
                     <li id="singup-list-name">
-                        <span><img src="img/person2.jpg" class="menu-profile-img"></span>
+                        <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img"></span>
                     </li>
                   </ul>
                </div>
@@ -49,7 +49,7 @@
         </div>
       <ul id="mobile-menu-list">
             <li id="mobile-menu-list-name">
-                <span><img src="img/person2.jpg" class="menu-profile-img-mobile"></span>
+                <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img-mobile"></span>
                 <span>Tasif Tarikul</span><br>
                 <span class="mobile-logout">Logout</span>
             </li>
@@ -65,7 +65,7 @@
                     <li class="admin-page-menu-listname activeadmin">
                         <a class="" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md" aria-selected="true"><i class="fas fa-users main-body-form-icon"></i>Client</a>
                     </li>
-                    <li class="admin-page-menu-listname" style="display: ;">
+                    <li class="admin-page-menu-listname" style="display: none;">
                         <a class="" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false"><i class="fas fa-cloud-upload-alt main-body-form-icon"></i>File upload</a>
                     </li>
                </ul>
@@ -100,7 +100,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -110,7 +118,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -120,7 +136,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -130,7 +154,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -140,7 +172,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -150,7 +190,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -160,7 +208,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -170,7 +226,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -180,7 +244,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -190,7 +262,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -200,7 +280,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -210,7 +298,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -220,7 +316,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -230,7 +334,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -240,7 +352,15 @@
                                 <td><span>Tasif.tarikul12@gmail.com</span></td>
                                 <td><span>+0123836251234</span></td>
                                 <td><span>Bangladesh</span></td>
-                                <td><span>Processing</span></td>
+                                <td>
+                                    <select class="form-tabel-status">
+                                      <option>Lead1</option>
+                                      <option>Lead2</option>
+                                      <option>Lead3</option>
+                                      <option>Lead4</option>
+                                    </select>
+                                    <i class="fas fa-sort-down input-icon-class2"></i>
+                                </td>
                                 <td><span>20 Nov 2018</span></td>
                                 <td><p class="main-body-action-button">Action</p></td>
                               </tr>
@@ -273,9 +393,9 @@
     
             
 </body>
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script type="text/javascript" src="{% static 'common_static/js/jquery-3.3.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'common_static/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'common_static/js/main.js' %}"></script>
   <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
   <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
