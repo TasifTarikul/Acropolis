@@ -1,62 +1,16 @@
+{% extends 'base.html' %}
 {% load static %}
-<html>
-<head>
-      <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>Acropolis | Migrate To Malaysia</title>
-    <link rel="icon" href="{% static 'common_static/img/logo-small.png' %}" />
-      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'common_static/css/style.css' %}" />
-</head>
-<body> 
-   
-    <section id="main-menu">
-      <div class="container">
-           <div class="row">
-               <div class="col-sm-2 side-body-padding">
-                  <p id="logo">ACROPOLIS</p>
-               </div>
-               <div class="col-sm-6">
-                  <ul id="menu-list">
-                      <li id="menu-list-name"><a class="active-page"></a></li>
-                  </ul>
-               </div>
-               <div class="col-sm-4 main-body-padding">
-                  <ul id="singup-list">
-                    <li id="singup-list-name singup-logout"><span><i class="fas fa-sign-out-alt logout-icon"></i></span><a>Logout</a></li>
-                    <li id="singup-list-name">
-                      <span class="menu-profile-name"><a>Tasif Tarikul</span></a>
-                    </li>
-                    <li id="singup-list-name">
-                        <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img"></span>
-                    </li>
-                  </ul>
-               </div>
-           </div>
-      </div>
-    </section><!--       Main Menu     -->
 
-    <section id="mobile-menu">
-        <div id="mobile-menu-button-box">
-             <span id="mobile-menu-logo">ACROPOLIS</span>
-             <span id="mobile-menu-button"><i class="fa fa-bars side-menu-bar"></i></span>
-             <span id="mobile-menu-button1"><i class="fa fa-bars side-menu-bar"></i></span>
-        </div>
-      <ul id="mobile-menu-list">
-            <li id="mobile-menu-list-name">
-                <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img-mobile"></span>
-                <span>Tasif Tarikul</span><br>
-                <span class="mobile-logout">Logout</span>
-            </li>
-            <a href="#"><li id="mobile-menu-list-name" class="active-page"></li></a>
-        </ul>
-    </section><!--       Mobile Menu     -->
 
+{% block individual_header_content %}
+{% endblock %}
+
+
+{% block content %}
+
+
+    {% include "header_menu_bar.html" %}
+    
     <section class="admin-main-body">
      <div class="container-fluid admin-page-container">
          <div class="row">
@@ -391,13 +345,11 @@
     </section>
 
     
-            
-</body>
-  <script type="text/javascript" src="{% static 'common_static/js/jquery-3.3.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'common_static/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'common_static/js/main.js' %}"></script>
-  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-  <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+{% endblock %}
 
-</html>
+
+{% block individual_footer_content %}
+{% endblock %}
+
+
+  

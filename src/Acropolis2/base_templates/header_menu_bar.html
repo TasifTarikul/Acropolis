@@ -1,0 +1,42 @@
+{% load static %}
+<section id="main-menu">
+      <div class="container">
+           <div class="row">
+               <div class="col-sm-2 side-body-padding">
+                  <p id="logo">ACROPOLIS</p>
+               </div>
+               <div class="col-sm-6">
+                  <ul id="menu-list">
+                      <li id="menu-list-name"><a class="active-page"></a></li>
+                  </ul>
+               </div>
+               <div class="col-sm-4 main-body-padding">
+                  <ul id="singup-list">
+                    <li id="singup-list-name singup-logout"><span><i class="fas fa-sign-out-alt logout-icon"></i></span><a>Logout</a></li>
+                    <li id="singup-list-name">
+                      <span class="menu-profile-name"><a>Tasif Tarikul</span></a>
+                    </li>
+                    <li id="singup-list-name">
+                        <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img"></span>
+                    </li>
+                  </ul>
+               </div>
+           </div>
+      </div>
+    </section><!--       Main Menu     -->
+
+    <section id="mobile-menu">
+        <div id="mobile-menu-button-box">
+             <span id="mobile-menu-logo">ACROPOLIS</span>
+             <span id="mobile-menu-button"><i class="fa fa-bars side-menu-bar"></i></span>
+             <span id="mobile-menu-button1"><i class="fa fa-bars side-menu-bar"></i></span>
+        </div>
+      <ul id="mobile-menu-list">
+            <li id="mobile-menu-list-name">
+                <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img-mobile"></span>
+                <span>Tasif Tarikul</span><br>
+                <span class="mobile-logout">Logout</span>
+            </li>
+            <a href="#"><li id="mobile-menu-list-name" class="active-page"></li></a>
+        </ul>
+    </section><!--       Mobile Menu     -->

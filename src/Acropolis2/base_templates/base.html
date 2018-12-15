@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<html>
+<head>
+      <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="icon" href="{% static 'common_static/img/logo-small.png' %}" />
+      <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'common_static/css/style.css' %}" />
+
+{% block individual_header_content %}
+{% endblock %}
+    <title>Acropolis | Migrate To Malaysia</title>    <!-- will only work if  individual_header_content block don't have title-->
+    </head>
+    <body> 
+{% block content %}
+{% endblock %}
+
+  </body>
+  <script type="text/javascript" src="{% static 'common_static/js/jquery-3.3.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'common_static/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'common_static/js/main.js' %}"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+  <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+{% block individual_footer_content %}
+{% endblock %}
+
+
+
+</html>
