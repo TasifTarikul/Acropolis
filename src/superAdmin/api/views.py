@@ -1,5 +1,5 @@
 import datetime
-from django.shortcuts import reverse
+from django.shortcuts import reverse, get_object_or_404
 from django.contrib.auth import get_user_model
 from rest_framework import routers, serializers, viewsets
 from rest_framework import viewsets, permissions, generics, pagination
@@ -221,7 +221,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 	
 
 	filterset_fields = ('id', 'acropolismodel__country_of_residence', 'acropolismodel__application_status', 'acropolismodel__nationality', 'client_status', 'sarawakmodel__gender')
-	http_method_names = ['get']
+	http_method_names = ['get', 'patch', 'put']
 
 
 	def list(self, request, *args, **kwargs):
@@ -242,6 +242,25 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		# }
 		# response['single_page_url'] = single_page_url
 		# return Response(response)
+
+
+
+
+	# def retrieve(self, request, *args, **kwargs):
+
+	# 	response = {
+	# 		'result':'You don\'t have permission for this'
+	# 	}
+
+	# 	if request.user.is_authenticated:
+	# 		if request.user.id == int(kwargs['pk']):
+				
+	# 			response = super().retrieve(request, *args, **kwargs)
+	# 			return response
+
+		
+	# 	return Response(response)
+
 
 
 
