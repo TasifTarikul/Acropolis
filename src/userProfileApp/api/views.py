@@ -44,12 +44,12 @@ class CustomerAccessPermission(permissions.BasePermission):
 			if request.user.is_superuser:
 				return True
 
-		# return True
-		return False
+		return True
+		# return False
 
 
 # ViewSets define the view behavior.
-class UserProfileViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
 
 
 	def get_queryset(self):
@@ -221,34 +221,52 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 	
 
 	filterset_fields = ('id', 'acropolismodel__country_of_residence', 'acropolismodel__application_status', 'acropolismodel__nationality', 'client_status', 'sarawakmodel__gender')
-	http_method_names = ['get']
+	http_method_names = ['get', 'put']
+	# http_method_names = ['put']
 
 
 	def list(self, request, *args, **kwargs):
-		response = super().list(request, *args, **kwargs)
-		# response = {
-		# 	'result': response.data
-		# }
-		single_page_url = reverse('superAdmin:client', args=[0,])		# since we must add the training_id argument
-		response.data['single_page_url'] = single_page_url[:-1]			# removing the id argument to use it globally / need to use "/<id>" format. Will only work if id in last
 		
-		return response
+		response = {}
+		
+		return Response(response)
 
-		"""
-		if not using paginaiton use this for adding extra argument
-		"""
-		# response = {
-		# 	'result': response.data
-		# }
-		# response['single_page_url'] = single_page_url
-		# return Response(response)
+	# def retrieve(self, request, *args, **kwargs):
 
+	# 	response = {
+	# 		'result':'ata tmr na'
+	# 	}
 
+	# 	if request.user.id == int(kwargs['pk']):
+	# 		response = {
+	# 			'result':'ata tmr'
+	# 		}
 
+		
+	# 	return Response(response)
 
+	def update(self, instance, validated_data):
+		profile_data = validated_data.pop('profile')
+		# Unless the application properly enforces that this field is
+		# always set, the follow could raise a `DoesNotExist`, which
+		# would need to be handled.
+		profile = instance.profile
 
+		instance.username = validated_data.get('username', instance.username)
+		instance.email = validated_data.get('email', instance.email)
+		instance.save()
 
+		profile.is_premium_member = profile_data.get(
+		    'is_premium_member',
+		    profile.is_premium_member
+		)
+		profile.has_support_contract = profile_data.get(
+		    'has_support_contract',
+		    profile.has_support_contract
+		 )
+		profile.save()
 
+		return instance
 
 
 

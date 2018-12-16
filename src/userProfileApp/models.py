@@ -17,17 +17,7 @@ class AcropolisModel(models.Model):
     _application_status_list = (('single application', 'Single Application'),
                                 ('family application', 'Family Application'))
 
-    _client_status_list = (
-            ('subscriber', 'Subscriber'),
-            ('qualified', 'Qualified'),
-            ('qual-lead', 'Qual-Lead'),
-            ('lead', 'Lead'),
-            ('applied', 'Applied'),
-            ('approved', 'Approved'),
-            ('rejected', 'Rejected'),
-            ('drop_out', 'Drop Out'),
-            ('un_subscribed', 'Un-subscribed')
-        )
+
 
     user_profile = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     referenceID = models.CharField(max_length=50, null=True, blank=True)
@@ -43,7 +33,7 @@ class AcropolisModel(models.Model):
     permanent_add = models.TextField(max_length=1000, null=True,blank=True)
     email_add = models.EmailField(null=True, blank=True)
     is_business_set_up = models.BooleanField(default=False, null=True,blank=True)
-    client_status = models.CharField(max_length=50, null=True, blank=True, choices=_client_status_list)
+    
     phone_no = models.CharField(max_length=50, null=True,blank=True)
     application_type = models.CharField(max_length=50, null=True, blank=True, choices=_application_type_list)
     application_status = models.CharField(max_length=50, null=True, blank=True, choices=_application_status_list)

@@ -41,8 +41,23 @@ class MyUserManager(BaseUserManager):
 
 # --------------custom model------------------------
 class User(AbstractUser):
+
+    _client_status_list = (
+            ('subscriber', 'Subscriber'),
+            ('qualified', 'Qualified'),
+            ('qual-lead', 'Qual-Lead'),
+            ('lead', 'Lead'),
+            ('applied', 'Applied'),
+            ('approved', 'Approved'),
+            ('rejected', 'Rejected'),
+            ('drop_out', 'Drop Out'),
+            ('un_subscribed', 'Un-subscribed')
+        )
+
+
     username = models.CharField(max_length=150, unique=False, null=True, blank=True)
     email = models.EmailField(unique=True, null=False)
+    client_status = models.CharField(max_length=50, null=True, blank=True, choices=_client_status_list)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
