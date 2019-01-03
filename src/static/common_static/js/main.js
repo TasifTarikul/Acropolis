@@ -289,6 +289,17 @@ $(document).ready(function(){
         }
     )
 
+
+    /////////////////date 
+
+    $( function() {
+            $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+
+    $( function() {
+            $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    });
+
     
     /*
     $(".input-box-class").keyup(function(){
@@ -322,6 +333,14 @@ $(document).ready(function(){
       $(this).css('display','none')
 
     })*/
+   
+    $(".page-range-select").click(function(){
+
+        
+        //$(".page-range-icon").toggleClass("fa-chevron-circle-down fa-chevron-circle-up");
+
+    })
+
 
 
 })

@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 .container {
     width: 100%;
     max-width: 1400px;
@@ -483,9 +486,6 @@ ul#mobile-menu-list li:hover{
     cursor: pointer;
 }
 .input-icon-class2 {
-    margin-right: 10px;
-    position: absolute;
-    margin-left: -14px;
     color: #3c4b82;
     font-size: 12px;
     -webkit-transition: margin-top .6s; /* For Safari 3.1 to 6.0 */
@@ -693,17 +693,6 @@ th, td {
     background-color: #052738;
     height: 50px;
 }
-.main-table-searchbox {
-    margin-left: 3.5%;
-    outline: none;
-    background-color: transparent;
-    border: 1px solid white;
-}
-.main-table-searchbox:focus { 
-    border: 1px solid white !important;
-    outline: none !important;
-    background-image: none !important;
-}
 .main-body-input-row .is-focused{
     background-image: none !important;
 }
@@ -719,6 +708,47 @@ th, td {
     font-size: 12px;
     font-family: 'Poppins', sans-serif;
     letter-spacing: 1px;
+}
+.main-table-searchbox:focus { 
+    border: 1px solid white !important;
+    outline: none !important;
+    background-image: none !important;
+}
+.main-table-age {
+    width: 45%;
+    height: 30px;
+    margin-left: 1%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid white;
+    padding-left: 10px;
+    color: white;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.main-table-age:focus { 
+    border: 1px solid white !important;
+    outline: none !important;
+    background-image: none !important;
+}
+.main-table-date {
+    width: 45%;
+    height: 30px;
+    margin-left: 1%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid white;
+    padding-left: 10px;
+    color: white;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.main-table-date:focus { 
+    border: 1px solid white !important;
+    outline: none !important;
+    background-image: none !important;
 }
 .main-body-name-row {
     color: white;
@@ -1054,12 +1084,77 @@ label.bmd-label-floating.singup-section-option {
 .forgot-singup-text a:hover{
     text-decoration: underline !important;
 }
-
-
-
-
-
-
+#home-md {
+  width: 100%;
+  overflow:auto;  
+  margin-top:10px;
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  table-layout: fixed;
+}
+td{
+    width: 200px;
+}
+.main-table-optionbox {
+    background-color: transparent;
+    color: #6b736d;
+    padding: 6px 50px;
+    border: 1px solid white;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.submain-table-optionbox {
+    background-color: transparent;
+    color: #6b736d;
+    padding: 6px 40px;
+    border: 1px solid white;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.submain2-table-optionbox {
+    background-color: transparent;
+    color: #6b736d;
+    padding: 6px 30px;
+    border: 1px solid white;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+.page-range {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+.page-range-select {
+    padding: 2px 24px;
+    color: #082e41;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+.page-range-text{
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    color: #082e41;
+}
+.page-range-icon {
+    margin-left: -20px;
+    font-size: 12px;
+}
 
 
 
