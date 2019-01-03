@@ -2,6 +2,7 @@ from django.shortcuts import reverse, get_object_or_404
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from userProfileApp.models import AcropolisModel, SarawakModel
+from coreApp.custom_utils import add_notification
 User = get_user_model()
 # class TagSerializer(serializers.Serializer):		#as tag is a many to many field
 # 	id = serializers.IntegerField()	#to return the name not id
@@ -48,16 +49,19 @@ class UserSerializer(serializers.ModelSerializer):
 			acropolismodel = validated_data.pop('acropolismodel')
 			del acropolismodel['his_age']	#since it's a custom method
 			AcropolisModel.objects.filter(user_profile=instance).update(**acropolismodel)
+			add_notification(instance)
 		except:
 			pass
 
 		try:	#if put request than might not have these field
 			sarawakmodel = validated_data.pop('sarawakmodel')
 			SarawakModel.objects.filter(user_profile=instance).update(**sarawakmodel)
+			add_notification(instance)
 		except:
 			pass
 
 		User.objects.filter(id=instance.id).update(**validated_data)
+		add_notification(instance)
 		instance = User.objects.filter(id=instance.id).get()
 		
 		return instance

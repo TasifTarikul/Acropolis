@@ -1,8 +1,10 @@
 from django.db import models
+from django.urls import reverse
 from django.conf import settings
 import datetime
-from coreApp.models import User
+from coreApp.models import User, Notification
 from coreApp.commonData import all_countries
+from coreApp.custom_utils import GetCurrentUserMiddleWare, add_notification
 
 
 # -------------------------fields taken from the Acropolis Application Form
@@ -21,7 +23,7 @@ class AcropolisModel(models.Model):
 
     user_profile = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     referenceID = models.CharField(max_length=50, null=True, blank=True)
-    image = models.FileField(upload_to='ProfilePics', null=True, blank=True)
+    image = models.FileField(upload_to='ProfilePics/', null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
     passport_no = models.CharField(max_length=50, null=True,blank=True)
     country_of_residence = models.CharField(max_length=50, null=True, blank=True, choices=all_countries())
@@ -37,6 +39,31 @@ class AcropolisModel(models.Model):
     phone_no = models.CharField(max_length=50, null=True,blank=True)
     application_type = models.CharField(max_length=50, null=True, blank=True, choices=_application_type_list)
     application_status = models.CharField(max_length=50, null=True, blank=True, choices=_application_status_list)
+
+    # to add notification
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+            super(AcropolisModel, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = AcropolisModel.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in AcropolisModel._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+                add_notification(self.user_profile)
+                
+                
+            super(AcropolisModel, self).save(*args, **kwargs)    
 
 
     @property
@@ -83,7 +110,31 @@ class SarawakModel(models.Model):
     working_year_end = models.DateField(null=True, blank=True)
 
 
-# -----------------field taken from Visa Form--------------------
+    # to add notification
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+            super(SarawakModel, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = SarawakModel.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in SarawakModel._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+                add_notification(self.user_profile)
+                
+
+            super(SarawakModel, self).save(*args, **kwargs)    
+
 
 
 class VisaModel(models.Model):
@@ -105,6 +156,210 @@ class VisaModel(models.Model):
     spnsr_telephone_no = models.CharField(max_length=50, null=True, blank=True)
     spnsr_add = models.TextField(max_length=1000, null=True, blank=True)
     spnsr_state = models.CharField(max_length=100, null=True, blank=True)
-
     visa_req = models.CharField(max_length=10, null=True, blank=True, choices=_visa_req_list)
     visa_type = models.CharField(max_length= 50, null=True, blank=True)
+
+
+
+
+    # to add notification
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+            super(VisaModel, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = VisaModel.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in VisaModel._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+                add_notification(self.user_profile)
+                
+
+            super(VisaModel, self).save(*args, **kwargs)    
+
+
+
+
+class BirthCertificateFile(models.Model):
+    user_profile = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    file = models.FileField(upload_to='BirthCertificateFile/', null=True, blank=True)
+    file_name = models.CharField(max_length= 150, null=True, blank=True)
+
+    def __str__(self):
+        if self.user_profile:
+            return str(self.file)
+        else:
+            return 'No User Found'
+
+    # to add notification
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+
+            add_notification(self.user_profile)
+
+            super(BirthCertificateFile, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = BirthCertificateFile.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in BirthCertificateFile._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+
+                add_notification(self.user_profile)
+                
+            super(BirthCertificateFile, self).save(*args, **kwargs)    
+
+
+
+
+
+
+class MarriageCertificateFile(models.Model):
+    user_profile = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    file = models.FileField(upload_to='MarriageCertificateFile/', null=True, blank=True)
+    file_name = models.CharField(max_length= 150, null=True, blank=True)
+
+    def __str__(self):
+        if self.user_profile:
+            return str(self.file)
+        else:
+            return 'No User Found'
+
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+
+            add_notification(self.user_profile)
+
+            super(MarriageCertificateFile, self).save(*args, **kwargs)
+
+        else:
+            # get the original
+            old = MarriageCertificateFile.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in MarriageCertificateFile._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+
+                add_notification(self.user_profile)
+                
+            super(MarriageCertificateFile, self).save(*args, **kwargs)    
+
+
+
+
+
+
+class PassportCopyFile(models.Model):
+    user_profile = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    file = models.FileField(upload_to='PassportCopyFile/', null=True, blank=True)
+    file_name = models.CharField(max_length= 150, null=True, blank=True)
+
+    def __str__(self):
+        if self.user_profile:
+            return str(self.file)
+        else:
+            return 'No User Found'
+
+
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+            
+            add_notification(self.user_profile)
+
+            super(PassportCopyFile, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = PassportCopyFile.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in PassportCopyFile._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+
+                add_notification(self.user_profile)
+                
+            super(PassportCopyFile, self).save(*args, **kwargs)    
+
+
+
+
+
+class BankStatementFile(models.Model):
+    user_profile = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
+    file = models.FileField(upload_to='BankStaementsFile/', null=True, blank=True)
+    file_name = models.CharField(max_length= 150, null=True, blank=True)
+
+    def __str__(self):
+        if self.user_profile:
+            return str(self.file)
+        else:
+            return 'No User Found'
+
+
+
+    def save(self, *args, **kwargs):
+        if not self.pk: # if this is new, just save
+                
+            add_notification(self.user_profile)
+
+            super(BankStatementFile, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = BankStatementFile.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in BankStatementFile._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+
+                add_notification(self.user_profile)
+                
+            super(BankStatementFile, self).save(*args, **kwargs)    
+
+
+

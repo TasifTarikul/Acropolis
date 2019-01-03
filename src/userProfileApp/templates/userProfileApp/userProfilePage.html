@@ -10,15 +10,33 @@
 
 
     {% include "header_menu_bar.html" %}
-    
+
     <section id="main-body">
       <div class="container">
          <div class="row">
                 <div class="col-lg-4 side-body-padding">
                     <div class="body-profile-box">
-                        <span class="main-profile-edit"><i class="fas fa-pencil-alt pic-update-edit"></i></span>
-                        <img src="{% static 'common_static/img/person2.jpg'  %}" class="main-profile-pic">
-                        <p class="main-profile-user">TASIF TARIKUL</p>
+                        <form method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+                          <input class="profilePicFileInput" style="display:none" type="file" name="profile_pic">
+                          <input class="profilePicFileSubmit" style="display:none" type="submit" name="submit" value="profile_pic_upload">
+                        </form>
+                        <span class="main-profile-edit"><i style="" class="fas fa-times pic-update-edit profilePicUploadRemove"></i></span>
+                        &nbsp;
+                        <span class="main-profile-edit"><i style="display: none" class="fas fa-check pic-update-edit profilePicUploadSubmit"></i></span>
+                        &nbsp;
+
+                        <span class="main-profile-edit profilePicUploadMsg"></span>
+                        &nbsp;
+                        <span class="main-profile-edit"><i class="fas fa-pencil-alt pic-update-edit profilePicUploadButton"></i></span>
+                        
+                        {% if this_user.profile_pic %}
+                          <img src="{{ this_user.profile_pic.url }}" class="main-profile-pic mainProfilePic">
+                        {% else %}
+                          <img src="" class="main-profile-pic mainProfilePic" alt="profile pic">
+                        {% endif %}
+
+                        <p class="main-profile-user">{{ this_user.full_name }}</p>
                     </div><!-- side box1 -->
                     <div class="body-profile-details">
                         <p class="body-profile-main-name"><i class="fas fa-angle-down about-arrow-down"></i>About Naeem Bangladesh</p>
@@ -29,12 +47,12 @@
                             <label for="formGroupExampleInput" class="bmd-label-floating input-name-class infoLabel ">First Name 
                             <img style="width:15px;" class="infoImg" src="" /> 
                             </label>
-                            <input type="text" class="form-control input-box-class infoField" data-field-name='first_name' id="" value="{{ user.first_name }}">
+                            <input type="text" class="form-control input-box-class infoField" data-field-name='first_name' id="" value="{{ this_user.first_name }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
                             <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Last Name</label>
-                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='last_name' value="{{ user.last_name }}">
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='last_name' value="{{ this_user.last_name }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
@@ -44,7 +62,7 @@
                                 <span class="infoMsgTxt"><!-- coming from ajax --></span>
                             </span>
                             </label>
-                            <input type="text" class="form-control input-box-class infoField" data-field-name='email' value="{{ request.user.email }}">
+                            <input type="text" class="form-control input-box-class infoField" data-field-name='email' value="{{ this_user.email }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
@@ -58,25 +76,56 @@
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Company name</label>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Reference id</label>
                             <input type="text" class="form-control input-box-class" id="">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Create date</label>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Date Of Birth</label>
                             <input type="text" class="form-control input-box-class" id="">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Lead status</label>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Nationality</label>
                             <input type="text" class="form-control input-box-class" id="">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Lifecycle  status</label>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Occupation</label>
                             <input type="text" class="form-control input-box-class" id="">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application type</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application status</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">No of child under 21</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Passport no</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Current address</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Permanent  address</label>
+                            <input type="text" class="form-control input-box-class" id="">
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div>
+
                           <div class="form-group single-group-box Persona-box"> <!-- manually specified --> 
                             <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Save update</label>
                           </div>
@@ -96,7 +145,7 @@
                           <a class="main-body-menu-text" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md" aria-selected="true"><i class="fas fa-envelope main-body-form-icon"></i>Form</a>
                         </li>
                         <li class="main-body-menu-listname">
-                          <a class="main-body-menu-text" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false"><i class="fas fa-cloud-upload-alt main-body-form-icon"></i>File upload</a>
+                          <a class="main-body-menu-text fileUploadTab" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false"><i class="fas fa-cloud-upload-alt main-body-form-icon"></i>File upload</a>
                         </li>
                       </ul>
                       <div class="tab-content card pt-5" id="myTabContentMD">
@@ -798,32 +847,197 @@
                               </div>
                         </div>
                         <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+                          <!-------------------------------------------
+                                      Birth certificate  
+                          -------------------------------------------->
                            <div class="main-body-file-uploadbox">
                                 <p class="main-body-file-uploadtext">Add your birth certificate</p>
-                                <input type="file" name="">
+                                
+
+                              <form method="POST" enctype="multipart/form-data" class="">
+                                    {% csrf_token %}
+                                    <!-- <input type="file" name="testFile"> -->
+                                    <input type="file" name="addBirthCertificateFileOnList" class="addBirthCertificateFileOnList" multiple>
+
+                                    <input type="hidden" name="currentBirthCertificateFiles" class="currentBirthCertificateFiles" value="{{ current_birth_certificate_file_ids }}">
+                                    <input type="submit" name="submit" class="UploadBirthCertificateFile" value="UploadBirthCertificateFile">
+                                  </form>
+                                  <b>Newly selected files</b><br>
+                                  <span class="ListOfNewBirthCertificateFile">
+                                    no file selected
+                                  </span>
+                                  <br>
+                                  <b>Already exists files</b><br>
+                                  <span class="ListOfCurrentBirthCertificateFiles">
+                                  {% if request.user.birthcertificatefile_set.all.exists %}
+                                      {% for file in request.user.birthcertificatefile_set.all %}
+                                        <span>
+                                            {{ file.file_name|default:'Birth Certificate' }}
+                                            <span class="current_birth_certificate_file" data-id={{ file.id }}>X</span>
+                                            <br>
+                                        </span>
+                                      {% endfor %}
+                                  {% else %}
+                                    No File Exist
+                                  {% endif %}
+
+
+
+
+
                            </div>
+                           <!-------------------------------------------
+                                      End
+                          -------------------------------------------->
+
+                          <!-------------------------------------------
+                                      Marriage certificate  
+                          -------------------------------------------->
                            <div class="main-body-file-uploadbox">
                                 <p class="main-body-file-uploadtext">Add your marriage certificate</p>
-                                <input type="file" name="">
+                                
+
+
+                                <form method="POST" enctype="multipart/form-data" class="">
+                                    {% csrf_token %}
+                                    <!-- <input type="file" name="testFile"> -->
+                                    <input type="file" name="addMarriageCertificateFileOnList" class="addMarriageCertificateFileOnList" multiple>
+
+                                    <input type="hidden" name="currentMarriageCertificateFiles" class="currentMarriageCertificateFiles" value="{{ current_marriage_certificate_file_ids }}">
+                                    <input type="submit" name="submit" class="uploadMarriageCertificateFile" value="uploadMarriageCertificateFile">
+                                  </form>
+                                  <b>Newly selected files</b><br>
+                                  <span class="ListOfNewMarriageCertificateFile">
+                                    no file selected
+                                  </span>
+                                  <br>
+                                  <b>Already exists files</b><br>
+                                  <span class="ListOfCurrentMarriageCertificateFiles">
+                                  {% if request.user.marriagecertificatefile_set.all.exists %}
+                                      {% for file in request.user.marriagecertificatefile_set.all %}
+                                        <span>
+                                            {{ file.file_name|default:'Marriage Certificate' }}
+                                            <span class="current_marriage_certificate_file" data-id={{ file.id }}>X</span>
+                                            <br>
+                                        </span>
+                                      {% endfor %}
+                                  {% else %}
+                                    No File Exist
+                                  {% endif %}
+
+
                            </div>
+
+                          <!-------------------------------------------
+                                      End
+                          -------------------------------------------->
+
+                          <!-------------------------------------------
+                                      Passport copy
+                          -------------------------------------------->
                            <div class="main-body-file-uploadbox">
                                 <p class="main-body-file-uploadtext">Add your passport copy</p>
-                                <input type="file" name="">
+                                
+
+                                <form method="POST" enctype="multipart/form-data" class="">
+                                    {% csrf_token %}
+                                    <!-- <input type="file" name="testFile"> -->
+                                    <input type="file" name="addPassportCopyFileOnList" class="addPassportCopyFileOnList" multiple>
+
+                                    <input type="hidden" name="currentPassportCopyFiles" class="currentPassportCopyFiles" value="{{ current_passport_copy_ids }}">
+                                    <input type="submit" name="submit" class="uploadPassportCopyFile" value="uploadPassportCopyFile">
+                                  </form>
+                                  <b>Newly selected files</b><br>
+                                  <span class="ListOfNewPassportCopyFile">
+                                    no file selected
+                                  </span>
+                                  <br>
+                                  <b>Already exists files</b><br>
+                                  <span class="ListOfCurrentPassportCopyFiles">
+                                  {% if request.user.passportcopyfile_set.all.exists %}
+                                      {% for file in request.user.passportcopyfile_set.all %}
+                                        <span>
+                                            {{ file.file_name|default:'Marriage Certificate' }}
+                                            <span class="current_passport_copy_file" data-id={{ file.id }}>X</span>
+                                            <br>
+                                        </span>
+                                      {% endfor %}
+                                  {% else %}
+                                    No File Exist
+                                  {% endif %}
+
+
+
                            </div>
+                          <!-------------------------------------------
+                                      End
+                          -------------------------------------------->
+
+                          <!-------------------------------------------
+                                      Bank Statement
+                          -------------------------------------------->
+                           <div class="main-body-file-uploadbox">
+                                <p class="main-body-file-uploadtext">Add your bank statement</p>
+                                
+                                <form method="POST" enctype="multipart/form-data" class="">
+                                    {% csrf_token %}
+                                    <!-- <input type="file" name="testFile"> -->
+                                    <input type="file" name="addBankStatementFileOnList" class="addBankStatementFileOnList" multiple>
+
+                                    <input type="hidden" name="currentBankStatementFiles" class="currentBankStatementFiles" value="{{ current_bank_statement_file_ids }}">
+                                    <input type="submit" name="submit" class="uploadBankStatementFile" value="uploadBankStatementFile">
+                                  </form>
+                                  <b>Newly selected files</b><br>
+                                  <span class="ListOfNewBankStatementFile">
+                                    no file selected
+                                  </span>
+                                  <br>
+                                  <b>Already exists files</b><br>
+                                  <span class="ListOfCurrentBankStatementFiles">
+                                  {% if request.user.bankstatementfile_set.all.exists %}
+                                      {% for file in request.user.bankstatementfile_set.all %}
+                                        <span>
+                                            {{ file.file_name|default:'Bank Statement' }}
+                                            <span class="current_bank_statement_file" data-id={{ file.id }}>X</span>
+                                            <br>
+                                        </span>
+                                      {% endfor %}
+                                  {% else %}
+                                    No File Exist
+                                  {% endif %}
+
+
+
+                           </div>
+                          <!-------------------------------------------
+                                      End
+                          -------------------------------------------->
+
                         </div>
                       </div>
                 </div>
          </div>
       </div>
     </section>
-     
 {% endblock %}
 
 
 {% block individual_footer_content %}
-<input type="hidden" name="update_url" class="update_url" value="{% url 'userProfileApp:UserProfileApi:user_api:user_api-list'  %}{{ request.user.id }}/">
+<input type="hidden" name="update_url" class="update_url" value="{% url 'userProfileApp:UserProfileApi:user_api:user_api-list'  %}{{ this_user.id }}/">
 <input type="hidden" name="csrf_token" class="csrf_token" value="{{ csrf_token }}">
 <script type="text/javascript" src="{% static 'common_static/js/userProfilePage.js' %}"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  // to check which tab was open previously
+  {% if request.GET.tab == 'file_upload' %}
+    $('.fileUploadTab').trigger('click')
+  // {% elif request.GET.tab == 'file_upload' %}
+  // {% elif request.GET.tab == 'file_upload' %}
+  {% endif %}
+
+})
+</script>
 {% endblock %}
 
 
