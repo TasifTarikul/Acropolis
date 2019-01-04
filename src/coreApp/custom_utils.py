@@ -23,15 +23,16 @@ def add_notification(updated_in_user):
 	    user = None
 
 	# if changes make by superuser (current user) send notification to user, and if change make by kep the user filed blank(user send to superuser)
-	if user.is_superuser:
-	    Notification.objects.create(
-	            for_user = updated_in_user,
-	            msg = 'Field updated for '+updated_in_user.email,
-	            redirect_uri = reverse('userProfileApp:usrProfile')
-	        )
-	else:   # if changed made by user
-	    Notification.objects.create(
-	            msg = 'Field updated for '+updated_in_user.email,
-	            redirect_uri = reverse('superAdmin:client', args=[updated_in_user.id])
-	        )
+	if user:
+		if user.is_superuser:
+		    Notification.objects.create(
+		            for_user = updated_in_user,
+		            msg = 'Field updated for '+updated_in_user.email,
+		            redirect_uri = reverse('userProfileApp:usrProfile')
+		        )
+		else:   # if changed made by user
+		    Notification.objects.create(
+		            msg = 'Field updated for '+updated_in_user.email,
+		            redirect_uri = reverse('superAdmin:client', args=[updated_in_user.id])
+		        )
 
