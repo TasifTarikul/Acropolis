@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'coreApp.custom_utils.GetCurrentUserMiddleWare',
 ]
 
 ROOT_URLCONF = 'Acropolis2.urls'
@@ -120,6 +121,7 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
+    'DATETIME_FORMAT': "%Y-%m-%d",
 }
 
 
@@ -148,5 +150,12 @@ STATICFILES_DIRS = (
 
 
 MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# FILE_UPLOAD_HANDLERS = [
+#                 "django.core.files.uploadhandler.MemoryFileUploadHandler",
+#                 "django.core.files.uploadhandler.TemporaryFileUploadHandler"
+#             ]
 
 AUTH_USER_MODEL = 'coreApp.User'

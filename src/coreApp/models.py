@@ -57,6 +57,7 @@ class User(AbstractUser):
 
     username = models.CharField(max_length=150, unique=False, null=True, blank=True)
     email = models.EmailField(unique=True, null=False)
+    profile_pic = models.FileField(upload_to='user_profile_pic', null=True, blank=True)
     client_status = models.CharField(max_length=50, null=True, blank=True, choices=_client_status_list)
     is_staff = models.BooleanField(
         _('staff status'),
@@ -78,6 +79,36 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
 
+
+    def save(self, *args, **kwargs):
+        from coreApp.custom_utils import add_notification   #since another model of this file is importaed in coreApp.custom_utils so import it here
+        if not self.pk: # if this is new, just save
+            
+            add_notification(self)
+
+            super(User, self).save(*args, **kwargs)
+        else:
+            # get the original
+            old = User.objects.get(id=self.pk)
+
+
+            field_changed = False
+
+            # field_changed = []
+            # for field in self._meta.get_all_field_names():
+            for field in User._meta.fields:
+                if getattr(self, field.name, None) != getattr(old, field.name, None):
+                    # field_changed.append(old)
+                    field_changed = True
+                    break
+            
+            if field_changed:
+
+                add_notification(self)
+                
+            super(User, self).save(*args, **kwargs)    
+
+
     def get_full_name(self):
         return self.email
 
@@ -87,3 +118,11 @@ class User(AbstractUser):
 
     def get_short_name(self):
         return self.email
+
+
+class Notification(models.Model):
+    for_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    msg = models.CharField(max_length=500, null=True, blank=True)
+    redirect_uri = models.CharField(max_length=500, null=True, blank=True)
+    is_read = models.BooleanField(default=False, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now=True, blank=True, null=True)

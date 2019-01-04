@@ -79,6 +79,14 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		if passport_no:
 			filters_kwargs['acropolismodel__passport_no__icontains'] = passport_no
 
+
+		#search with phone_no
+		phone_no = self.request.GET.get('phone_no', False)
+		if phone_no:
+			filters_kwargs['acropolismodel__phone_no__icontains'] = phone_no
+
+
+
 		#search with date_joined_after
 		date_joined_after = self.request.GET.get('date_joined_after', False)
 		if date_joined_after:
@@ -110,9 +118,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		#order by id
 		id = self.request.GET.get('order_by_id', False)
 		if id == 'asc':
-			order_by_args.insert(0, 'acropolismodel__id')
+			order_by_args.insert(0, 'id')
 		if id == 'desc':
-			order_by_args.insert(0, '-acropolismodel__id')
+			order_by_args.insert(0, '-id')
 
 
 		#order by country_of_residence
@@ -181,12 +189,22 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		if order_by_email == 'desc':
 			order_by_args.insert(0, '-email')
 
-		#order by email
+		#order by passort_no
 		order_by_passport_no = self.request.GET.get('order_by_passport_no', False)
 		if order_by_passport_no == 'asc':
 			order_by_args.insert(0, 'acropolismodel__passport_no')
 		if order_by_passport_no == 'desc':
 			order_by_args.insert(0, '-acropolismodel__passport_no')
+
+
+		#order by phone_no
+		order_by_phone_no = self.request.GET.get('order_by_phone_no', False)
+		if order_by_phone_no == 'asc':
+			order_by_args.insert(0, 'acropolismodel__phone_no')
+		if order_by_phone_no == 'desc':
+			order_by_args.insert(0, '-acropolismodel__phone_no')
+
+
 
 
 		#order by date_joined
@@ -204,11 +222,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		if order_by_date_joined == 'desc':
 			order_by_args.insert(0, 'acropolismodel__date_of_birth')	#date of birth is reverse of age
 
-
-
-
-
-
 		to_return = User.objects.filter(*filters_args, **filters_kwargs).order_by(*order_by_args).distinct()
 		# to_return = User.objects.filter().order_by('-id').distinct()
 
@@ -220,7 +233,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 	pagination_class = LargeResultsSetPagination
 	
 
-	filterset_fields = ('id', 'acropolismodel__country_of_residence', 'acropolismodel__application_status', 'acropolismodel__nationality', 'client_status', 'sarawakmodel__gender')
+	filterset_fields = ('id', 'acropolismodel__country_of_residence', 'acropolismodel__application_status', 'acropolismodel__application_type', 'acropolismodel__nationality', 'client_status', 'sarawakmodel__gender')
 	http_method_names = ['get', 'patch', 'put']
 
 
@@ -280,6 +293,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		full_name
 		email
 		passport_no
+		phone_no
 		date_joined_after
 		date_joined_before
 		age_greater_than
@@ -287,6 +301,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		id
 		acropolismodel__country_of_residence
 		acropolismodel__application_status
+		acropolismodel__application_type
 		acropolismodel__nationality
 		client_status
 		sarawakmodel__gender
@@ -302,6 +317,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 		order_by_full_name
 		order_by_email
 		order_by_passport_no
+		order_by_phone_no
 		order_by_date_joined
 		order_by_age
 	Pagination:

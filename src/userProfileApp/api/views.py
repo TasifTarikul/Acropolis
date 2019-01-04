@@ -80,15 +80,17 @@ class UserViewSet(viewsets.ModelViewSet):
 		
 		return Response(response)
 
-	def retrieve(self, request, *args, **kwargs):
+	def retrieve(self, request, *args, **kwargs):	#retrive will do the work for put and patch as it's for single object like them
 
 		response = {
 			'result':'You don\'t have permission for this'
 		}
 
 		if request.user.is_authenticated:
-			if request.user.id == int(kwargs['pk']):
-				
+			if request.user.is_superuser:
+				response = super().retrieve(request, *args, **kwargs)
+				return response
+			elif request.user.id == int(kwargs['pk']):
 				response = super().retrieve(request, *args, **kwargs)
 				return response
 
@@ -110,6 +112,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 """
 	### API documentation
-
+	argument to send request with 
+	('id', 'first_name', 'last_name', 'full_name', 'email', 'phone_no', 'country_of_residence(has options)', 'application_status(has options)', 'application_type(has options)', 'passport_no', 'date_joined', 'gender(has options)', 'client_status(has options)', 'nationality(has options)', 'his_age (no need)', 'referenceID', 'date_of_birth ("1996-11-19" format)', 'occupation', 'no_of_chldrn_U21 ("1996-11-19" format)', 'current_add', 'permanent_add')
 	
-	"""
+	
+"""

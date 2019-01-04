@@ -13,3 +13,4 @@ def create_model_object(sender, instance, created, **kwrgs):
             AcropolisModel.objects.create(user_profile=instance)
             SarawakModel.objects.create(user_profile=instance)
             VisaModel.objects.create(user_profile=instance)
+
