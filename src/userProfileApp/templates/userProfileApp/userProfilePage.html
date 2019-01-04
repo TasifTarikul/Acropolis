@@ -45,84 +45,152 @@
                         <form>
                           <div class="form-group single-group-box">
                             <label for="formGroupExampleInput" class="bmd-label-floating input-name-class infoLabel ">First Name 
-                            <img style="width:15px;" class="infoImg" src="" /> 
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
                             </label>
                             <input type="text" class="form-control input-box-class infoField" data-field-name='first_name' id="" value="{{ this_user.first_name }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Last Name</label>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class infoLabel">Last Name
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
                             <input type="text" class="form-control input-box-class infoField" id="" data-field-name='last_name' value="{{ this_user.last_name }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
                             <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class infoLabel">Email
                             <span class="infoMsg">
-                                <img style="width:15px;" class="infoImg" src="" /> 
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
                                 <span class="infoMsgTxt"><!-- coming from ajax --></span>
                             </span>
                             </label>
                             <input type="text" class="form-control input-box-class infoField" data-field-name='email' value="{{ this_user.email }}">
                             <i class="fas fa-pencil-alt input-icon-class"></i>
-                          </div>
+                          </div><!-- Email -->
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Mobile phone number</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.phone_no }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class infoLabel">Mobile phone number
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='phone_no' value={{ request.user.acropolismodel.phone_no }}>
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div><!-- Phone -->
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Country
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='country_of_residence' value={{ request.user.acropolismodel.country_of_residence }}>
+                            <i class="fas fa-pencil-alt input-icon-class"></i>
+                          </div><!-- manually specified -->
+                          <div class="form-group single-group-box"> <!-- manually specified --> 
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Reference id
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" data-field-name='referenceID'  id="" value={{ request.user.acropolismodel.referenceID }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Country</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.country_of_residence }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Date Of Birth
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" data-field-name='date_of_birth' id="" value={{ request.user.acropolismodel.date_of_birth }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Reference id</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.referenceID }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Nationality
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" data-field-name='nationality' id="" value={{ request.user.acropolismodel.nationality }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Date Of Birth</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.date_of_birth }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Occupation
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='occupation' value={{ request.user.acropolismodel.occupation }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Nationality</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.nationality }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application type
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='application_type' value={{ request.user.acropolismodel.application_type }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Occupation</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.occupation }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application status
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='application_status' value={{ request.user.acropolismodel.application_status }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application type</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.application_type }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">No of child under 21
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='no_of_chldrn_U21' value={{ request.user.acropolismodel.no_of_chldrn_U21 }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Application status</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.application_status }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Passport no
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='passport_no' value={{ request.user.acropolismodel.passport_no }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">No of child under 21</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.no_of_chldrn_U21 }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Current address
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='current_add' value={{ request.user.acropolismodel.current_add }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
                           <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Passport no</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.passport_no }}>
-                            <i class="fas fa-pencil-alt input-icon-class"></i>
-                          </div>
-                          <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Current address</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.current_add }}>
-                            <i class="fas fa-pencil-alt input-icon-class"></i>
-                          </div>
-                          <div class="form-group single-group-box"> <!-- manually specified --> 
-                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Permanent  address</label>
-                            <input type="text" class="form-control input-box-class" id="" value={{ request.user.acropolismodel.permanent_add }}>
+                            <label for="formGroupExampleInput2" class="bmd-label-floating input-name-class">Permanent  address
+                            <span class="infoMsg">
+                                <img style="width:15px;opacity: 0" class="infoImg" src="" /> 
+                                <span class="infoMsgTxt"><!-- coming from ajax --></span>
+                            </span>
+                            </label>
+                            <input type="text" class="form-control input-box-class infoField" id="" data-field-name='permanent_add' value={{ request.user.acropolismodel.permanent_add }}>
                             <i class="fas fa-pencil-alt input-icon-class"></i>
                           </div>
 
@@ -141,16 +209,16 @@
                 </div>
                 <div class="col-lg-8 main-body-padding">
                     <ul class="nav tab-nav-list-box main-body-menu-bar" id="myTabMD" role="tablist">
-                        <li class="main-body-menu-active main-body-menu-listname">
+                        <li class="main-body-menu-active main-body-menu-listname form-list-all">
                           <a class="main-body-menu-text" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md" aria-selected="true"><i class="fas fa-envelope main-body-form-icon"></i>Form</a>
                         </li>
-                        <li class="main-body-menu-listname">
+                        <li class="main-body-menu-listname file-upload">
                           <a class="main-body-menu-text fileUploadTab" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false"><i class="fas fa-cloud-upload-alt main-body-form-icon"></i>File upload</a>
                         </li>
                       </ul>
                       <div class="tab-content card pt-5" id="myTabContentMD">
-                        <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
-                          <div id="accordion">
+                        <div id="home-md" class="tab-pane fade three-form show active"  role="tabpanel" aria-labelledby="home-tab-md">
+                          <div id="accordion" style="display: ;">
                                 <div class="card">
                                   <div class="card-header" id="headingOne">
                                     <h5 class="mb-0">
@@ -873,7 +941,7 @@
                                       {% for file in request.user.birthcertificatefile_set.all %}
                                         <span>
                                             {{ file.file_name|default:'Birth Certificate' }}
-                                            <span class="current_birth_certificate_file" data-id={{ file.id }}>X</span>
+                                            <span class="current_birth_certificate_file" data-id={{ file.id }}><i class="fas fa-times close-file-icon"></i></span>
                                             <br>
                                         </span>
                                       {% endfor %}
@@ -917,7 +985,7 @@
                                       {% for file in request.user.marriagecertificatefile_set.all %}
                                         <span>
                                             {{ file.file_name|default:'Marriage Certificate' }}
-                                            <span class="current_marriage_certificate_file" data-id={{ file.id }}>X</span>
+                                            <span class="current_marriage_certificate_file" data-id={{ file.id }}><i class="fas fa-times close-file-icon"></i></span>
                                             <br>
                                         </span>
                                       {% endfor %}
@@ -958,7 +1026,7 @@
                                       {% for file in request.user.passportcopyfile_set.all %}
                                         <span>
                                             {{ file.file_name|default:'Marriage Certificate' }}
-                                            <span class="current_passport_copy_file" data-id={{ file.id }}>X</span>
+                                            <span class="current_passport_copy_file" data-id={{ file.id }}><i class="fas fa-times close-file-icon"></i></span>
                                             <br>
                                         </span>
                                       {% endfor %}
@@ -998,7 +1066,7 @@
                                       {% for file in request.user.bankstatementfile_set.all %}
                                         <span>
                                             {{ file.file_name|default:'Bank Statement' }}
-                                            <span class="current_bank_statement_file" data-id={{ file.id }}>X</span>
+                                            <span class="current_bank_statement_file" data-id={{ file.id }}><i class="fas fa-times close-file-icon"></i></span>
                                             <br>
                                         </span>
                                       {% endfor %}

@@ -813,6 +813,10 @@ input::placeholder {
     font-family: 'Poppins', sans-serif;    
 }
 
+img.infoImg {
+    opacity: 0 ;
+}
+
 
 
 
@@ -841,10 +845,118 @@ input::placeholder {
 .login-form {
     margin-bottom: 30px;
 }
+.ListOfNewBirthCertificateFile {
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfCurrentBirthCertificateFiles{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfNewMarriageCertificateFile{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfCurrentMarriageCertificateFiles{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfNewPassportCopyFile{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfCurrentBankStatementFiles{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfNewBankStatementFile{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+span.ListOfCurrentPassportCopyFiles{
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+.current_birth_certificate_file {
+    margin-bottom: 7px;
+    display: inline-block;
+}
+.update_newly_added_marriage_certificate_file {
+   
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.current_marriage_certificate_file{
+    
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.update_newly_added_birth_certificate_file{
+    
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.update_newly_added_passport_copy_file{
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.current_passport_copy_file{
+    
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.update_newly_added_bank_statement_file{
+    
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.ListOfCurrentBankStatementFiles{
+    margin-bottom: 7px;
+    display: inline-block;
+}
+span.current_bank_statement_file{
+    
+    margin-bottom: 7px;
+    display: inline-block;
 
-
-
-
+}
+i.fas.fa-times.close-file-icon {
+    margin-left: 20px;
+}
+span.main-profile-edit.profilePicUploadMsg {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: -14px;
+    color: red;
+    padding-left: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
 /************************************************
                 sinup body
 **************************************************/

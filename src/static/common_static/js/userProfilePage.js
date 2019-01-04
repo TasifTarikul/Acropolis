@@ -15,7 +15,7 @@ $(document).ready(function(){
 		files = e.target.files
 		var files = Array.prototype.slice.call(files);
 		files.forEach(function(file) {
-		test_htmls = '<span class="current_birth_certificate_file">'+file.name+'</span><span class="update_newly_added_birth_certificate_file"> X</span></br>'
+		test_htmls = '<span class="current_birth_certificate_file">'+file.name+'</span><span class="update_newly_added_birth_certificate_file"> <i class="fas fa-times close-file-icon"></i></span></span></br>'
 		$('.ListOfNewBirthCertificateFile').append(test_htmls)
 		});
 
@@ -70,7 +70,7 @@ $(document).ready(function(){
 		files = e.target.files
 		var files = Array.prototype.slice.call(files);
 		files.forEach(function(file) {
-		test_htmls = '<span class="current_marriage_certificate_file">'+file.name+'</span><span class="update_newly_added_marriage_certificate_file"> X</span></br>'
+		test_htmls = '<span class="current_marriage_certificate_file">'+file.name+'</span><span class="update_newly_added_marriage_certificate_file"> <i class="fas fa-times close-file-icon"></i></span></br>'
 		$('.ListOfNewMarriageCertificateFile').append(test_htmls)
 		});
 
@@ -127,7 +127,7 @@ $(document).ready(function(){
 		files = e.target.files
 		var files = Array.prototype.slice.call(files);
 		files.forEach(function(file) {
-		test_htmls = '<span class="current_passport_copy_file">'+file.name+'</span><span class="update_newly_added_passport_copy_file"> X</span></br>'
+		test_htmls = '<span class="current_passport_copy_file">'+file.name+'</span><span class="update_newly_added_passport_copy_file"><i class="fas fa-times close-file-icon"></i></span></br>'
 		$('.ListOfNewPassportCopyFile').append(test_htmls)
 		});
 
@@ -182,7 +182,7 @@ $(document).ready(function(){
 		files = e.target.files
 		var files = Array.prototype.slice.call(files);
 		files.forEach(function(file) {
-		test_htmls = '<span class="current_bank_statement_file">'+file.name+'</span><span class="update_newly_added_bank_statement_file"> X</span></br>'
+		test_htmls = '<span class="current_bank_statement_file">'+file.name+'</span><span class="update_newly_added_bank_statement_file"><i class="fas fa-times close-file-icon"></i></span></br>'
 		$('.ListOfNewBankStatementFile').append(test_htmls)
 		});
 
@@ -294,10 +294,16 @@ $(document).ready(function(){
 					End
 	******************************************/
 
+ 
+  /*var imgcheck = function(){
+  	 $('.infoImg').each(function () {
+		    if (this.src.length > 0) {
+		        $('.infoImg').css('display','none')
+		    }
+		});
+  }
 
-
-
-
+   imgcheck()*/
 
 	/*****************************************
 		Left side user profile update
@@ -323,6 +329,7 @@ $(document).ready(function(){
 				data: data,
 				success: function(res){
 					// console.log(res)
+					that.parent().find('.infoImg').css('opacity','1')
 					that.parent().find('.infoImg').attr('src', 'https://www.healthandsafetysigns.co.uk/wp-content/uploads/2017/08/tick.png')
 					to_append = 'Done'
 					that.parent().find('.infomsgtxt').append(to_append)
@@ -341,14 +348,31 @@ $(document).ready(function(){
 			})
 			$(this).blur()	//to remove focus from input field
 		}
+
+
+  
+
+
 	})
 
 	/*****************************************
 					End
 	******************************************/
+  /* if ($("#home-md").hasClass("show")) {
+	   $("#home-md").css('display','block')
+	}else{
+		$("#home-md").css('display','none')
+	}*/
 
+   $(".file-upload").click(function(){
+   	  $("#home-md").css('display','none')
+   	  $("#profile-md").css('display','block')
+   })
 
-
+   $(".form-list-all").click(function(){
+   	  $("#home-md").css('display','block')
+   	  $("#profile-md").css('display','none')
+   })
 
 
 
