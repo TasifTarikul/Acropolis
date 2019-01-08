@@ -44,8 +44,10 @@ INSTALLED_APPS = [
 
     'userProfileApp.apps.UserprofileappConfig',
     'coreApp.apps.CoreappConfig',
-    'superAdmin'
+    'superAdmin.apps.SuperadminConfig'
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

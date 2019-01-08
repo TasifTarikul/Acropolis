@@ -26,7 +26,8 @@ urlpatterns = [
     path('superAdmin/', include('superAdmin.urls')),
     path('admin/', admin.site.urls),
     path('logout/', auth_views.LogoutView.as_view(next_page='userProfileApp:signin'), name='userProfilelogout'),
-    path('adminlogout/', auth_views.LogoutView.as_view(next_page='superAdmin:signin'), name='superAdminlogout')
+    path('adminlogout/', auth_views.LogoutView.as_view(next_page='superAdmin:signin'), name='superAdminlogout'),
+
 ]
 
 

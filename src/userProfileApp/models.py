@@ -16,10 +16,8 @@ class AcropolisModel(models.Model):
             ('mm2h_peninsular', 'MM2 Peninsular'),
             ('mm2h_sarawak', 'MM2H Sarawak'),
             )
-    _application_status_list = (('single application', 'Single Application'),
-                                ('family application', 'Family Application'))
-
-
+    _application_status_list = (('single_application', 'Single Application'),
+                                ('family_application', 'Family Application'))
 
     user_profile = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     referenceID = models.CharField(max_length=50, null=True, blank=True)
@@ -35,8 +33,13 @@ class AcropolisModel(models.Model):
     permanent_add = models.TextField(max_length=1000, null=True,blank=True)
     email_add = models.EmailField(null=True, blank=True)
     is_business_set_up = models.BooleanField(default=False, null=True,blank=True)
-    
-    phone_no = models.CharField(max_length=50, null=True,blank=True)
+
+    country_code_1= models.CharField(max_length=50, null=True,blank=True)
+    area_code_1= models.CharField(max_length=50, null=True,blank=True)
+    phone_no_1 = models.CharField(max_length=50, null=True,blank=True)
+    country_code_2 = models.CharField(max_length=50, null=True, blank=True)
+    area_code_2 = models.CharField(max_length=50, null=True, blank=True)
+    phone_no_2 = models.CharField(max_length=50, null=True, blank=True)
     application_type = models.CharField(max_length=50, null=True, blank=True, choices=_application_type_list)
     application_status = models.CharField(max_length=50, null=True, blank=True, choices=_application_status_list)
 
@@ -69,7 +72,7 @@ class AcropolisModel(models.Model):
     @property
     def his_age(self):
         if self.date_of_birth:
-            return datetime.datetime.now().year - self.date_of_birth.year
+            return int(datetime.datetime.now().year - self.date_of_birth.year)
         else:
             return None
 
@@ -80,7 +83,6 @@ class SarawakModel(models.Model):
 
     _application_category_type_list = (('new_application',
                                         'New Application'), ('renewal_application', 'Renewal Application'))
-    _applicant_accompanied_by_list = (('spouse', 'Spouse'), ('children','Children'))
     _gender_list = (('male', 'Male'), ('female', 'Female'))
     _marital_status_list = (('single', 'Single'), ('married', 'Married'),
                             ('divorced', 'Divorced'), ('widow/widower', 'Widow/Widower'),
@@ -89,7 +91,8 @@ class SarawakModel(models.Model):
     user_profile = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
     application_category_type = models.CharField(max_length=50, null=True, blank=True,
                                                  choices=_application_category_type_list)
-    accompanied_by = models.CharField(max_length=20, null=True, blank=True, choices=_applicant_accompanied_by_list)
+    accompanied_by_spouse = models.BooleanField(default=False, null=True,blank=True)
+    accompanied_by_children = models.BooleanField(default=False, null=True, blank=True)
     gender = models.CharField(max_length=20, null=True, blank=True, choices=_gender_list)
     marital_status = models.CharField(max_length=50, null=True, blank=True, choices=_marital_status_list)
     marital_status_other = models.CharField(max_length=100, null=True, blank=True)
@@ -103,11 +106,28 @@ class SarawakModel(models.Model):
     income_per_annum = models.IntegerField(null=True, blank=True)
     last_employment = models.CharField(max_length=100, null=True, blank=True)
     last_employer = models.CharField(max_length=100, null=True, blank=True)
+    last_employer_add = models.CharField(max_length=100, null=True, blank=True)
     pension_recieved_perannum = models.IntegerField(null=True, blank=True)
-    position = models.CharField(max_length=100, null=True, blank=True)
-    organization = models.CharField(max_length=100, null=True, blank=True)
-    working_year_start = models.DateField(null=True, blank=True)
-    working_year_end = models.DateField(null=True, blank=True)
+    position1 = models.CharField(max_length=100, null=True, blank=True)
+    organization1 = models.CharField(max_length=100, null=True, blank=True)
+    working_year_start1 = models.DateField(null=True, blank=True)
+    working_year_end1 = models.DateField(null=True, blank=True)
+    position2 = models.CharField(max_length=100, null=True, blank=True)
+    organization2 = models.CharField(max_length=100, null=True, blank=True)
+    working_year_start2 = models.DateField(null=True, blank=True)
+    working_year_end2 = models.DateField(null=True, blank=True)
+    position3 = models.CharField(max_length=100, null=True, blank=True)
+    organization3 = models.CharField(max_length=100, null=True, blank=True)
+    working_year_start3 = models.DateField(null=True, blank=True)
+    working_year_end3 = models.DateField(null=True, blank=True)
+    position4 = models.CharField(max_length=100, null=True, blank=True)
+    organization4 = models.CharField(max_length=100, null=True, blank=True)
+    working_year_start4 = models.DateField(null=True, blank=True)
+    working_year_end4 = models.DateField(null=True, blank=True)
+    position5 = models.CharField(max_length=100, null=True, blank=True)
+    organization5 = models.CharField(max_length=100, null=True, blank=True)
+    working_year_start5 = models.DateField(null=True, blank=True)
+    working_year_end5 = models.DateField(null=True, blank=True)
 
 
     # to add notification
@@ -157,7 +177,7 @@ class VisaModel(models.Model):
     spnsr_add = models.TextField(max_length=1000, null=True, blank=True)
     spnsr_state = models.CharField(max_length=100, null=True, blank=True)
     visa_req = models.CharField(max_length=10, null=True, blank=True, choices=_visa_req_list)
-    visa_type = models.CharField(max_length= 50, null=True, blank=True)
+    visa_type = models.CharField(max_length=50, null=True, blank=True, choices=_visa_type_list)
 
 
 
@@ -360,6 +380,3 @@ class BankStatementFile(models.Model):
                 add_notification(self.user_profile)
                 
             super(BankStatementFile, self).save(*args, **kwargs)    
-
-
-

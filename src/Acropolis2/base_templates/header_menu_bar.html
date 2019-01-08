@@ -12,9 +12,15 @@
                </div>
                <div class="col-sm-4 main-body-padding">
                   <ul id="singup-list">
-                    <li id="singup-list-name singup-logout"><span><i class="fas fa-sign-out-alt logout-icon"></i></span><a>Logout</a></li>
+                    <li id="singup-list-name singup-logout"><span><i class="fas fa-sign-out-alt logout-icon"></i></span>
+                        {% if request.user.is_superuser  %}
+                            <a href="{% url 'superAdminlogout'%}">Logout</a>
+                        {% else %}
+                            <<a href="{% url 'userProfilelogout'%}">Logout</a>
+                        {% endif %}
+                    </li>
                     <li id="singup-list-name">
-                      <span class="menu-profile-name"><a>Tasif Tarikul</span></a>
+                      <span class="menu-profile-name"><a>Tasif Tarikul</a></span>
                     </li>
                     <li id="singup-list-name">
                         <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img"></span>

@@ -41,7 +41,6 @@ def usr_profile(request):
             if visa_form.is_valid():
                 visa_form.save(commit=True)
                 visa_form = VisaForm()
-            
 
         elif request.POST['submit'] == 'AllForm':
             user = request.user
@@ -329,7 +328,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save(commit=True)
             try:
-                # print("form is saved")
+
                 auth.login(request, user)
                 if request.user.is_authenticated:
                     return HttpResponseRedirect(reverse('userProfileApp:usrProfile'))
