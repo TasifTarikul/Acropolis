@@ -3,4 +3,4 @@ __pycache__/
 migrations/
 src/media
 db.sqlite3
-userProfileApp/views-1.py
+test
