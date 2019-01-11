@@ -3,4 +3,3 @@ __pycache__/
 migrations/
 src/media
 db.sqlite3
-test
