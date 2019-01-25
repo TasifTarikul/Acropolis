@@ -146,6 +146,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = 'coreApp:home'
+
+LOGOUT_URL = 'coreApp:home'
+
+LOGIN_REDIRECT_URL = 'coreApp:home'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     )

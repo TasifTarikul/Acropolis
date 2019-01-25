@@ -16,6 +16,11 @@
          <div class="row">
                 <div class="col-lg-4 side-body-padding">
                     <div class="body-profile-box">
+                    <form method="POST">
+                    {% csrf_token %}
+                    <button name="submit" value="DeactivateAccount">Deactivate Account</button>
+                    </form>
+                    <p>Document Verification Status: {{ request.user.is_document_verified }}</p>
                         <form method="POST" enctype="multipart/form-data">
                           {% csrf_token %}
                           <input class="profilePicFileInput" style="display:none" type="file" name="profile_pic">

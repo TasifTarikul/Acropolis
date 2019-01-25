@@ -1,6 +1,7 @@
 from django.shortcuts import reverse, get_object_or_404
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from coreApp.commonData import all_countries
 from userProfileApp.models import AcropolisModel, SarawakModel
 from coreApp.custom_utils import add_notification
 
@@ -21,21 +22,29 @@ class UserProfileSerializer(serializers.ModelSerializer):
 	# tags = TagSerializer(many=True)		#many=True for manytomany relation
 	# disabilities = DisabilitiesSerializer(many=True)		#many=True for manytomany relation
 
+	_application_type_list = (
+		('mm2h_peninsular', 'MM2 Peninsular'),
+		('mm2h_sarawak', 'MM2H Sarawak'))
+
+	_application_status_list = (('single_application', 'Single Application'),
+								('family_application', 'Family Application'))
+	_gender_list = (('male', 'Male'), ('female', 'Female'))
+
 	phone_no = serializers.CharField(source='acropolismodel.phone_no')
-	country_of_residence = serializers.CharField(source='acropolismodel.country_of_residence')
-	application_status = serializers.CharField(source='acropolismodel.application_status')
-	application_type = serializers.CharField(source='acropolismodel.application_type')
-	nationality = serializers.CharField(source='acropolismodel.nationality')
+	country_of_residence = serializers.ChoiceField(source='acropolismodel.country_of_residence', choices=all_countries())
+	application_status = serializers.ChoiceField(source='acropolismodel.application_status', choices=_application_status_list)
+	application_type = serializers.ChoiceField(source='acropolismodel.application_type', choices=_application_type_list)
+	nationality = serializers.ChoiceField(source='acropolismodel.nationality', choices=all_countries())
 	his_age = serializers.CharField(source='acropolismodel.his_age')
 	passport_no = serializers.CharField(source='acropolismodel.passport_no')
 	referenceID = serializers.CharField(source='acropolismodel.referenceID')
-	date_of_birth = serializers.CharField(source='acropolismodel.date_of_birth')
+	date_of_birth = serializers.DateField(source='acropolismodel.date_of_birth')
 	occupation = serializers.CharField(source='acropolismodel.occupation')
-	no_of_chldrn_U21 = serializers.CharField(source='acropolismodel.no_of_chldrn_U21')
+	no_of_chldrn_U21 = serializers.IntegerField(source='acropolismodel.no_of_chldrn_U21')
 	current_add = serializers.CharField(source='acropolismodel.current_add')
 	permanent_add = serializers.CharField(source='acropolismodel.permanent_add')
 
-	gender = serializers.CharField(source='sarawakmodel.gender')
+	gender = serializers.ChoiceField(source='sarawakmodel.gender', choices=_gender_list)
 
 	class Meta:
 		model = get_user_model()

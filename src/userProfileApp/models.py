@@ -33,13 +33,8 @@ class AcropolisModel(models.Model):
     permanent_add = models.TextField(max_length=1000, null=True,blank=True)
     email_add = models.EmailField(null=True, blank=True)
     is_business_set_up = models.BooleanField(default=False, null=True,blank=True)
+    phone_no = models.CharField(max_length=50, null=True,blank=True)
 
-    country_code_1= models.CharField(max_length=50, null=True,blank=True)
-    area_code_1= models.CharField(max_length=50, null=True,blank=True)
-    phone_no_1 = models.CharField(max_length=50, null=True,blank=True)
-    country_code_2 = models.CharField(max_length=50, null=True, blank=True)
-    area_code_2 = models.CharField(max_length=50, null=True, blank=True)
-    phone_no_2 = models.CharField(max_length=50, null=True, blank=True)
     application_type = models.CharField(max_length=50, null=True, blank=True, choices=_application_type_list)
     application_status = models.CharField(max_length=50, null=True, blank=True, choices=_application_status_list)
 
@@ -128,6 +123,12 @@ class SarawakModel(models.Model):
     organization5 = models.CharField(max_length=100, null=True, blank=True)
     working_year_start5 = models.DateField(null=True, blank=True)
     working_year_end5 = models.DateField(null=True, blank=True)
+    country_code_1= models.CharField(max_length=50, null=True,blank=True)
+    area_code_1= models.CharField(max_length=50, null=True,blank=True)
+    phone_no_1 = models.CharField(max_length=50, null=True,blank=True)
+    country_code_2 = models.CharField(max_length=50, null=True, blank=True)
+    area_code_2 = models.CharField(max_length=50, null=True, blank=True)
+    phone_no_2 = models.CharField(max_length=50, null=True, blank=True)
 
 
     # to add notification

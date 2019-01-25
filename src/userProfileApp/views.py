@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.core.files.storage import FileSystemStorage
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import UserSignUpForm, AcropolisForm, SarawakForm, VisaForm
@@ -23,6 +23,10 @@ def usr_profile(request):
 
     # print(request.user.acropolismodel.user_profile.first_name)
     if request.method == 'POST':
+        if request.POST['submit'] == 'DeactivateAccount':                               # if acropolis form is submitted
+            request.user.account_status = 'deactive'
+            request.user.save()
+            logout(request)
         if request.POST['submit'] == 'AcropolisForm':                               # if acropolis form is submitted
             user = request.user  # get current user
             acropolis_form = AcropolisForm(request.POST,instance=user.acropolismodel )
@@ -348,6 +352,11 @@ def sign_in(request):
         if form.is_valid():
             try:
                 user = auth.login(request, form.get_user())
+                user = form.get_user()
+                if user.account_status == 'deactive':   #reactive account if deactivated
+                    user.account_status = 'active' 
+                    user.save()
+                
                 return HttpResponseRedirect(reverse('userProfileApp:usrProfile'))
             except Exception as e:
                 print('user can\'t logged in after register')

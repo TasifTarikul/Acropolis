@@ -54,11 +54,19 @@ class User(AbstractUser):
             ('un_subscribed', 'Un-subscribed')
         )
 
+    _account_status_list = (
+            ('active', 'Active'),
+            ('deactive', 'Deactive')
+        )
+
 
     username = models.CharField(max_length=150, unique=False, null=True, blank=True)
     email = models.EmailField(unique=True, null=False)
     profile_pic = models.FileField(upload_to='user_profile_pic', null=True, blank=True)
     client_status = models.CharField(max_length=50, null=True, blank=True, choices=_client_status_list)
+    account_status = models.CharField(max_length=50, default='active', null=True, blank=True, choices=_account_status_list)
+    is_document_verified = models.BooleanField(default=False, null=True, blank=True)
+
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
