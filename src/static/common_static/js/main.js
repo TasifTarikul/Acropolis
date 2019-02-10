@@ -290,6 +290,32 @@ $(document).ready(function(){
     )
 
 
+///////////////////////////////////////////hover the side menu
+    $(".menu-down-button").hover(function(){
+        $(".drop-down-section").css("opacity","1")
+    })
+
+    $(document).mouseover(function(e) 
+    {
+        var container = $(".menu-down-button");
+        var button = $(".drop-down-section");
+        var menubar = $("#main-menu")
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && !button.is(e.target) && !menubar.is(e.target) && container.has(e.target).length === 0 
+          && button.has(e.target).length === 0 && menubar.has(e.target).length === 0) 
+        {
+            $(".drop-down-section").css("opacity","0")
+        }
+    });  
+
+    /*$(".drop-down-section").hover(function(){
+       $(".drop-down-section").css("opacity","1")
+    },function(){
+        $(".drop-down-section").css("opacity","0")
+    })*/
+
+
     /////////////////date 
 
     $( function() {

@@ -12,13 +12,9 @@
                </div>
                <div class="col-sm-4 main-body-padding">
                   <ul id="singup-list">
-                    <li id="singup-list-name singup-logout"><span><i class="fas fa-sign-out-alt logout-icon"></i></span>
-                        {% if request.user.is_superuser  %}
-                            <a href="{% url 'superAdminlogout'%}">Logout</a>
-                        {% else %}
-                            <<a href="{% url 'userProfilelogout'%}">Logout</a>
-                        {% endif %}
-                    </li>
+                    <li id="singup-list-name" class="menu-down-button">
+                      <i class="fas fa-sort-down menu-down-icon"></i>
+                    </li>  
                     <li id="singup-list-name">
                       <span class="menu-profile-name"><a>Tasif Tarikul</a></span>
                     </li>
@@ -31,6 +27,20 @@
       </div>
     </section><!--       Main Menu     -->
 
+    <section class="drop-down-section">
+      <div class="drop-down-box">
+              <p id="singup-list-name" class="singup-list-here">
+                  {% if request.user.is_superuser  %}
+                      <a href="{% url 'superAdminlogout'%}">Logout</a>
+                  {% else %}
+                      <a href="{% url 'userProfilelogout'%}">Logout</a>
+                  {% endif %}
+              </p>
+              <p class="Deactive-button">Deactive</p>
+          </ul>
+      </div>  
+    </section>
+
     <section id="mobile-menu">
         <div id="mobile-menu-button-box">
              <span id="mobile-menu-logo">ACROPOLIS</span>
@@ -42,6 +52,7 @@
                 <span><img src="{% static 'common_static/img/person2.jpg' %}" class="menu-profile-img-mobile"></span>
                 <span>Tasif Tarikul</span><br>
                 <span class="mobile-logout">Logout</span>
+                <p class="mobile-deactive">Deactive</p>
             </li>
             <a href="#"><li id="mobile-menu-list-name" class="active-page"></li></a>
         </ul>

@@ -230,8 +230,9 @@ ul#mobile-menu-list li:hover{
 }
 .body-profile-box {
     border-radius: 4px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 35px;
     background-color: white;
     margin-top: 50px;
     box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
@@ -269,10 +270,16 @@ ul#mobile-menu-list li:hover{
     padding-bottom: 13px;
     background-color: white;
     margin-top: 20px;
+    margin-bottom: 0px;
     box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.1);
     padding-left: 20px;
     border-radius: 4px;
     cursor: pointer;
+}
+.document-verification {
+    font-family: monospace;
+    font-size: 14px;
+    color: #5b637e;
 }
 .main-profile-edit {
     cursor: pointer;
@@ -291,6 +298,16 @@ ul#mobile-menu-list li:hover{
     font-size: 16px;
     margin-bottom: -20px;
     color: #56568a;
+}
+.document-status {
+    font-weight: 800;
+    color: #c73535;
+    font-size: 14px;
+}
+i.fas.fa-file{
+    color: #5b637e;
+    padding-right: 2px;
+    font-size: 16px;
 }
 .about-arrow-down {
     font-size: 20px;
@@ -396,10 +413,20 @@ ul#mobile-menu-list li:hover{
 .side-add-company {
     background-color: white;
     margin-top: -10px;
-    padding-top: 25px;
+    padding-top: 5px;
     padding-bottom: 15px;
     padding-left: 20px;
     margin-bottom: 40px;
+}
+.phone-number-siderow {
+    margin-top: 15px;
+    color: #5e5b5b;
+    margin-bottom: 10px;
+}
+.general-phone-box {
+    margin-top: 15px;
+    padding-right: 35px;
+    margin-bottom: -30px;
 }
 .body-profile-main-name-2 {
     font-family: 'Roboto Condensed', sans-serif;
@@ -503,6 +530,14 @@ ul#mobile-menu-list li:hover{
 }
 .form-tabel-status option{
 
+}
+.save-the-update {
+    margin-bottom: 0px;
+    padding: 6px;
+    color: white;
+}
+.save-the-update:hover{
+    color: white;
 }
 
 .input-icon-hover {
@@ -636,9 +671,54 @@ ul#mobile-menu-list li:hover{
 .main-body-padding{
     padding-right: 30px;
 }
-
-
-
+i.fas.fa-times.close-file-icon:hover{
+    color: red;
+    cursor: pointer;
+}
+.all-certificate{
+    font-size: 22px;
+    color: #052738;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+}
+.fas.fa-check-circle {
+    color: green;
+    padding-right: 5px;
+}
+.upload-btn-wrapper{
+    position: relative;
+    width: 49%;
+    display: inline-table;
+}
+.upload-file-here {
+    border: 1px solid #cccccc;
+    background-color: #052738;
+    padding: 11px 43px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+.choose-file-one{
+    font-size: 30px;
+    padding-left: 74px;
+    padding-top: 10px;
+    color: gray;
+    margin-top: -54px;
+    margin-left: -73px;
+    opacity: 0;
+}
+input[type="file"] {
+    cursor: pointer !important;
+}
+.save-update-file {
+    padding: 12px 30px;
+    border: 0px;
+    color: white;
+    background-color: #052738;
+}
 /*****************************************************************************
                 admin body
 ******************************************************************************/
@@ -1267,13 +1347,61 @@ td{
     margin-left: -20px;
     font-size: 12px;
 }
-
-
-
-
-
-
-
+.menu-down-icon {
+    margin-left: 10px;
+    margin-top: -4px;
+    font-size: 20px;
+    color: white;
+}
+.menu-down-button {
+    cursor: pointer;
+}
+.drop-down-section {
+    background-color: #052738;
+    position: fixed;
+    right: 62px;
+    margin-top: 60px;
+    z-index: 1000;
+    width: 200px;
+    height: 100px;
+    padding-right: 20px;
+    opacity: 0;
+    -moz-transition: all 0.4s ease-out;  /* FF4+ */
+    -o-transition: all 0.4s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.4s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.4s ease-out;  /* IE10? */
+    transition: all 0.4s ease-out; 
+}
+.drop-down-box {
+    float: right;
+    padding-top: 15px;
+}
+.singup-list-here {
+    margin-bottom: 5px;
+    padding: 0px;
+    margin-left: 14px;
+}
+#singup-list-name a {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+#singup-list-name a:hover {
+    color: #fa6e4f;
+}
+.Deactive-button {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.Deactive-button:hover{
+    color: #fa6e4f;
+}
+.mobile-deactive {
+    padding-left: 50px;
+    margin-top: 9px;
+}
 
 
 
@@ -1436,9 +1564,16 @@ input::placeholder {
 .forgot-singup-text a {
     font-size: 13px;
 }
-
-
-
+.side-add-company{
+    margin-bottom: 50px;
+}
+.upload-file-here {
+    padding: 11px 50px;
+}
+.choose-file-one {
+    margin-bottom: 10px;
+    font-size: 35px;
+}
 
 
 
