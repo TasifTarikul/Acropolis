@@ -1363,14 +1363,14 @@ td{
     margin-top: 60px;
     z-index: 1000;
     width: 200px;
-    height: 100px;
+    height: 0px;
     padding-right: 20px;
-    opacity: 0;
-    -moz-transition: all 0.4s ease-out;  /* FF4+ */
-    -o-transition: all 0.4s ease-out;  /* Opera 10.5+ */
-    -webkit-transition: all 0.4s ease-out;  /* Saf3.2+, Chrome */
-    -ms-transition: all 0.4s ease-out;  /* IE10? */
-    transition: all 0.4s ease-out; 
+    overflow: hidden;
+    -moz-transition: all 0.2s ease-out;  /* FF4+ */
+    -o-transition: all 0.2s ease-out;  /* Opera 10.5+ */
+    -webkit-transition: all 0.2s ease-out;  /* Saf3.2+, Chrome */
+    -ms-transition: all 0.2s ease-out;  /* IE10? */
+    transition: all 0.2s ease-out; 
 }
 .drop-down-box {
     float: right;

@@ -292,7 +292,7 @@ $(document).ready(function(){
 
 ///////////////////////////////////////////hover the side menu
     $(".menu-down-button").hover(function(){
-        $(".drop-down-section").css("opacity","1")
+        $(".drop-down-section").css("height","100px")
     })
 
     $(document).mouseover(function(e) 
@@ -305,7 +305,7 @@ $(document).ready(function(){
         if (!container.is(e.target) && !button.is(e.target) && !menubar.is(e.target) && container.has(e.target).length === 0 
           && button.has(e.target).length === 0 && menubar.has(e.target).length === 0) 
         {
-            $(".drop-down-section").css("opacity","0")
+            $(".drop-down-section").css("height","0px")
         }
     });  
 
