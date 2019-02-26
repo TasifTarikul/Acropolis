@@ -292,7 +292,8 @@ $(document).ready(function(){
 
 ///////////////////////////////////////////hover the side menu
     $(".menu-down-button").hover(function(){
-        $(".drop-down-section").css("height","100px")
+        $(".drop-down-section").css('display','block')
+        $(".arrow-up").css('display','block')
     })
 
     $(document).mouseover(function(e) 
@@ -305,7 +306,8 @@ $(document).ready(function(){
         if (!container.is(e.target) && !button.is(e.target) && !menubar.is(e.target) && container.has(e.target).length === 0 
           && button.has(e.target).length === 0 && menubar.has(e.target).length === 0) 
         {
-            $(".drop-down-section").css("height","0px")
+            $(".drop-down-section").css('display','none')
+            $(".arrow-up").css('display','none')
         }
     });  
 
