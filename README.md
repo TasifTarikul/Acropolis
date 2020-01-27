@@ -80,7 +80,7 @@ go to this url to see a clients profile
 
 scroll down and click on print Sarawak form and you will see a PDF generated
 
-press back to aadmin dashboard and logout.
+press back to go to admin dashboard and logout.
 
 
 
